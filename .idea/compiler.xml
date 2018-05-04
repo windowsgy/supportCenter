@@ -27,7 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dataIntegration" target="1.5" />
-      <module name="dataSet" target="1.5" />
+      <module name="dataSet" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
