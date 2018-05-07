@@ -1,4 +1,4 @@
-package main.splitFiles;
+package main.parm;
 
 import main.parm.BuildParm;
 import main.parm.InitParm;

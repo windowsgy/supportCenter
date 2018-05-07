@@ -46,19 +46,19 @@ public class CheckFileInfo {
 
         }   else if (BuildParm.summaryJoinField.size()!= ListUtil.listToSet(BuildParm.summaryJoinField).size()){
 
-            LogInfo.info("摘要文件Join信息不唯一");
+            LogInfo.info("摘要文件关联字段不唯一");
 
             return false;
 
         }   else if (BuildParm.summaryJoinField.size()!= ListUtil.listToSet(BuildParm.detailJoinField).size()){
 
-            LogInfo.info("摘要文件Join信息与明细文件Join信息数量不一致");
+            LogInfo.info("摘要文件关联字段与明细文件关联字段数量不一致");
 
             return false;
 
         }   else if (!SetContrastSet.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField),ListUtil.listToSet(BuildParm.detailJoinField))) {
 
-            LogInfo.info("摘要文件Join信息与明细文件Join信息不一致");
+            LogInfo.info("摘要文件关联字段与明细文件关联字段不一致");
 
             return false;
 
@@ -91,12 +91,13 @@ public class CheckFileInfo {
 
         }   else if (BuildParm.summaryJoinField.size()!= BuildParm.summaryMailField.size()){
 
-            LogInfo.info("邮件信息与关联信息数量不一致");
+            LogInfo.info("摘要文件的关联字段与邮件信息数量不一致");
 
             return false;
 
 
         }
+
 
 
         return true;

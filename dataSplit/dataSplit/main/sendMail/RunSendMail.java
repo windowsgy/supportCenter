@@ -1,10 +1,9 @@
-package main.splitFiles;
+package main.sendMail;
 
 
+import main.parm.InputParm;
+import main.parm.SetupParms;
 import utils.internal.LogInfo;
-
-import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -12,11 +11,11 @@ import java.util.Map;
  * Created by jlgaoyuan on 2018/5/4.
  *
  */
-public class StartSplitFile {
+public class RunSendMail {
 
     public static void main( String [] args){
 
-        LogInfo.info("Start");
+        LogInfo.info("Start Send Mail");
 
         if(!InputParm.run()){
 
@@ -43,11 +42,11 @@ public class StartSplitFile {
 
         Load.run();//加载文件
 
-        Map<String,List<String>> map =  SplitInfo.run();//拆分文件
 
-        WrMap.run(map); ///拆分文件写入
 
-        LogInfo.info("End");
+
+
+        LogInfo.info("Send Mail End");
 
 
 

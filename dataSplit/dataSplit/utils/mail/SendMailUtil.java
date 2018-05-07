@@ -1,5 +1,8 @@
 package utils.mail;
 
+import main.parm.MailStru;
+import utils.internal.LogInfo;
+
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.*;
@@ -10,9 +13,9 @@ import java.util.Properties;
 import java.util.Vector;
 
 
-public class SendMail {
+public class SendMailUtil {
 
-        public String toChinese(String text) {
+        private String toChinese(String text) {
             try {
                 text = MimeUtility.encodeText(new String(text.getBytes(), "GB2312"), "GB2312", "B");
             } catch (Exception e) {
@@ -21,19 +24,19 @@ public class SendMail {
             return text;
         }
 
-        public boolean sendMail(MailPropSet mb) {
-            String host = mb.getHost();
-            final String username = mb.getUsername();
-            final String password = mb.getPassword();
-            String from = mb.getFrom();
-            String to = mb.getTo();
-            String subject = mb.getSubject();
-            String content = mb.getContent();
-            String fileName = mb.getFilename();
-            Vector<String> file = mb.getFile();
+        public boolean sendMail(MailStru map) {
+
+            String username = map.getUsername();
+            String password = map.getPassword();
+            String from = map.getFrom();
+            String to = map.getTo();
+            String subject = map.getSubject();
+            String content = map.getContent();
+            String fileName = map.getFileName();
+            Vector<String> file = map.getFile();
 
             Properties props = System.getProperties();
-            props.put("mail.smtp.host", host); // 设置SMTP的主机
+            props.put("mail.smtp.host", map.getHost()); // 设置SMTP的主机
             props.put("mail.smtp.auth", "true"); // 需要经过验证
 
             Session session = Session.getInstance(props, new Authenticator() {
@@ -50,22 +53,22 @@ public class SendMail {
                 msg.setSubject(toChinese(subject));
 
                 Multipart mp = new MimeMultipart();
-                MimeBodyPart mbpContent = new MimeBodyPart();
-                mbpContent.setText(content);
-                mp.addBodyPart(mbpContent);
+                MimeBodyPart mappContent = new MimeBodyPart();
+                mappContent.setText(content);
+                mp.addBodyPart(mappContent);
 
             /* 往邮件中添加附件 */
                 if (file != null) {
                     Enumeration<String> efile = file.elements();
                     while (efile.hasMoreElements()) {
-                        MimeBodyPart mbpFile = new MimeBodyPart();
+                        MimeBodyPart mappFile = new MimeBodyPart();
                         fileName = efile.nextElement().toString();
                         FileDataSource fds = new FileDataSource(fileName);
-                        mbpFile.setDataHandler(new DataHandler(fds));
-                        mbpFile.setFileName(toChinese(fds.getName()));
-                        mp.addBodyPart(mbpFile);
+                        mappFile.setDataHandler(new DataHandler(fds));
+                        mappFile.setFileName(toChinese(fds.getName()));
+                        mp.addBodyPart(mappFile);
                     }
-                    System.out.println("添加成功");
+                    LogInfo.info("Add File Succeed");
                 }
 
                 msg.setContent(mp);

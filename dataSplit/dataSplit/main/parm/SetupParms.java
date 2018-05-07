@@ -1,4 +1,4 @@
-package main.splitFiles;
+package main.parm;
 
 import main.parm.BuildParm;
 import main.parm.InitParm;
@@ -13,7 +13,7 @@ public class SetupParms {
 
    public static void run(){
 
-       LogInfo.info("初始化路径参数");
+       LogInfo.info("Init Path Parm");
 
        BuildParm.inputDatePath = BuildParm.inputDate+"\\";//时间格式路径
 
@@ -31,5 +31,6 @@ public class SetupParms {
        BuildParm.LOGS_FILEPATH = BuildParm.LOG_PATH+ InitParm.LOGS_FILENAME;//日志文件路径
 
    }
+
 
 }

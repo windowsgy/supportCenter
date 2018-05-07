@@ -19,6 +19,7 @@ public class InitParm {
     public static final String LOGS_FILENAME = "log.txt";//日志文件名
 
     public static final String SplitStr = ",";
+    public static final String FileNameSplitStr = ".";
     public static final String DATE_FORMAT = "yyyy-MM";
 
     public static final int summaryJoinIndex = 0 ;
@@ -26,6 +27,11 @@ public class InitParm {
     public static final int detailDateIndex = 1 ;
     public static final int detailIdIndex = 2 ;
     public static final int detailMailIndex = 8 ;
+
+    public static final String mailFrom = ""; // 发件人
+    public static final String mailUsername =""; // 发件人的用户名
+    public static final String mailPassword = ""; // 发件人的密码
+    public static final String mailHost = "smtp.189.cn"; // SMTP主机
 
 
 
