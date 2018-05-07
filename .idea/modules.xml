@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dataSet/dataSet.iml" filepath="$PROJECT_DIR$/dataSet/dataSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataSplit/dataSplit.iml" filepath="$PROJECT_DIR$/dataSplit/dataSplit.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/supportCenter.iml" filepath="$PROJECT_DIR$/.idea/supportCenter.iml" />
     </modules>
   </component>
