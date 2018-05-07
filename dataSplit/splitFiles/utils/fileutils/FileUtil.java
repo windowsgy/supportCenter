@@ -448,7 +448,7 @@ public class FileUtil {
 
         try  {
 
-            if (!file.exists()) {
+            if (!file.exists()) {//如果文件不存在
 
                 file.createNewFile();
 
