@@ -14,7 +14,7 @@ public class BuildJsonStru {
 
         List<JsonStru> jsonStru = new ArrayList<>();
 
-        List<String> lineList = FileUtil.fileLineToList(filePath);//每行生成LIST
+        List<String> lineList = FileUtil.read2List(filePath,1);//每行生成LIST
 
         for(int i = 0 ; i < lineList.size();i++){
 

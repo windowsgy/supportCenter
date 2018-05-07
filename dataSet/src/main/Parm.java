@@ -5,7 +5,7 @@ package main;
  *
  * Created by jlgaoyuan on 2018/5/4.
  */
-class Parm {
+public class Parm {
 
 
 
@@ -20,6 +20,13 @@ class Parm {
     static final String LOGS_FILENAME = "";//日志文件名
 
     static final String SplitStr = ",";
+    public static final String DATE_FORMAT = "yyyy-MM";
+
+    public static final int summaryJoinIndex = 0 ;
+    public static final int detailJoinIndex = 0 ;
+    public static final int detailDateIndex = 1 ;
+    public static final int detailIdIndex = 2 ;
+    public static final int detailMailIndex = 8 ;
 
 
 

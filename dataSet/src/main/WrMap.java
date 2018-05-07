@@ -1,0 +1,47 @@
+package main;
+
+import utils.fileutils.FileUtil;
+import utils.internal.LogInfo;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ *
+ * Created by jlgaoyuan on 2018/5/7.
+ *
+ */
+public class WrMap {
+
+    public static void run(Map<String,List<String>> map){
+
+        LogInfo.info("创建拆分文件目录");
+
+        FileUtil.createDir(Init.SPLIT_PATH+Init.inputDate);
+
+        StringBuilder sb = new StringBuilder();
+
+        for (String key : map.keySet()) {
+
+            String fileName = key+".csv";
+
+            String filePath = Init.SPLIT_PATH+fileName;
+
+            List<String> list = map.get(key);
+
+            for (String aList : list) {
+
+                sb.append(aList).append("\r");
+
+            }
+
+            FileUtil.wrStrToFile(sb.toString(),filePath);
+
+
+        }
+
+
+    }
+
+
+}

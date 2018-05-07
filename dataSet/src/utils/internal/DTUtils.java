@@ -199,28 +199,25 @@ public class DTUtils {
     }
 
     /**
-     * 时间字符串格式检查
-     * @param timeStr 时间戳
-     * @return  是否符合
+     * 日期时间格式检查
+     * @param dateTime 日期时间格式
+     * @param dateFormat 时间格式
+     * @return
      */
 
-    public static boolean timestampFormatCheak (String timeStr){
+    public static boolean dateFormatCheak (String dateTime,String dateFormat){
 
-       SimpleDateFormat format=new SimpleDateFormat("yyyyMMddHHmmss");// 设置日期转化成功标识
-
-        boolean dateflag = true;
+       SimpleDateFormat format=new SimpleDateFormat(dateFormat);// 设置日期转化成功标识
 
         try {
 
-            Date date = format.parse(timeStr);
+            format.parse(dateTime);
+
+            return true;
 
         } catch (ParseException e){
 
-            dateflag=false;
-
-        }finally {
-
-            return dateflag;
+            return false;
 
         }
 

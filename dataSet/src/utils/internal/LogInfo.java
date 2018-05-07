@@ -103,7 +103,7 @@ public class LogInfo {
 
         if(logFilePath != null){
 
-            FileUtil.strAddToFile(message, logFilePath);
+            FileUtil.wrStrAddToFile(message, logFilePath);
 
         }
 
