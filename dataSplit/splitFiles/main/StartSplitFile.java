@@ -1,22 +1,22 @@
 package main;
 
 
-import utils.internal.DTUtils;
 import utils.internal.LogInfo;
-
 
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+
 
 /**
  *
  * Created by jlgaoyuan on 2018/5/4.
  *
  */
-public class Run {
+public class StartSplitFile {
 
-    public static void run(){
+    public static void main( String [] args){
+
+        LogInfo.info("Start");
 
         if(!InputParm.run()){
 
@@ -45,7 +45,11 @@ public class Run {
 
         Map<String,List<String>> map =  SplitInfo.run();//拆分文件
 
-        WrMap.run(map);
+        WrMap.run(map); ///拆分文件写入
+
+        LogInfo.info("End");
+
+
 
     }
 

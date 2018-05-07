@@ -399,7 +399,7 @@ public class FileUtil {
 
        LogInfo.linel4();
 
-       LogInfo.info("写入文件:" + path);
+       LogInfo.info("Write To File:" + path);
 
         try {
 
@@ -409,7 +409,7 @@ public class FileUtil {
 
                 file.createNewFile();
 
-                LogInfo.info("Create File :" + path);
+                LogInfo.info("Create File");
 
             }
 
@@ -420,7 +420,7 @@ public class FileUtil {
 
             outToFile.flush();
 
-            LogInfo.info("Write To  File :" + path);
+            LogInfo.info("Write To File");
 
             outToFile.close();
 

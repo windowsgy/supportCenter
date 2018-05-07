@@ -59,8 +59,8 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src/</sourceDirectory>
-        <testSourceDirectory>src/</testSourceDirectory>
+        <sourceDirectory>splitFiles/</sourceDirectory>
+        <testSourceDirectory>splitFiles/</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>
