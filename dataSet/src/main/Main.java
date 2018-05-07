@@ -4,11 +4,7 @@ package main;
  * Created by jlgaoyuan on 2018/5/4.
  * 程序目录结构
  * D:\
- *      Program
- *      CurFiles
- *      HisFiles
- *      Splits
- *      Logs
+ *
  *
  *
  *

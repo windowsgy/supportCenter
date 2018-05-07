@@ -9,22 +9,61 @@ import java.util.List;
 
 public class FileUtil {
 
-   
+    public static boolean checkPath(String pathStr){
 
-    public static boolean checkFileExists(String filePath){
+        File path = new File(pathStr);
 
-        File file = new File(filePath);
+        if(path.exists()){
 
-        if(file.exists()){
-
-            return true;
+           return true;
 
         }
-        else return false;
 
+        else return false;
 
     }
 
+    public static boolean isFile(String pathStr){
+
+        File path = new File(pathStr);
+
+        if(path.exists()){
+
+            if(path.isFile()){
+
+                return true;
+
+            }
+
+            else return false;
+
+        }
+
+        else return false;
+
+    }
+
+
+    public static boolean isDir(String pathStr){
+
+        File path = new File(pathStr);
+
+        if(path.exists()){
+
+            if(path.isDirectory()){
+
+                return true;
+
+            }
+
+            else return false;
+
+
+        }
+
+        else return false;
+
+    }
 
 
     /**
@@ -129,20 +168,20 @@ public class FileUtil {
         }
 
 
-
-
     /**
-     * 读取文件每行至List
+     * 读取文件每行至 List
      * @param path 文件路径
-     * @return L
+     * @param lineNumber  从第几行开始读取 包括指定行号
+     * @return
      */
 
-
-    public List<String> read2List (String path) {
+    public static  List<String> read2List (String path ,long lineNumber) {
 
        LogInfo.linel4();
 
-       LogInfo.info("读取文件:" + path);
+       lineNumber = lineNumber - 1 ; //指定行号减1
+
+       LogInfo.info("Read File To StringList:" + path);
 
         List<String> list = new ArrayList<>();//返回结果
 
@@ -150,7 +189,7 @@ public class FileUtil {
 
         if (!file.exists()) { //如果文件不存在
 
-           LogInfo.info("文件不存在:" + path);
+           LogInfo.info("File Not Exists:" + path);
 
             return list;
         }
@@ -163,17 +202,25 @@ public class FileUtil {
 
             String line = null;
 
-            int lineCount = 1;
+            long lineCount = 1;
 
             // 一次读入一行，直到读入null为文件结束
 
             while ((line = reader.readLine()) != null) {
 
-                list.add(line);
+                lineCount ++;
 
-                lineCount++;
+                if(lineCount>lineNumber){//如果当前行号大于指定行号
+
+                    list.add(line);
+
+                }
+
+
 
             }
+
+            System.out.println("read"+lineCount+"line");
 
             reader.close();
 
@@ -203,6 +250,51 @@ public class FileUtil {
         return list;
 
     }
+
+    /**
+     * 读取文件第一行
+     * @param path 文件路径
+     * @return L
+     */
+
+
+    public static String readFirstLine (String path) {
+
+        LogInfo.linel4();
+
+        LogInfo.info("Read File First Line :" + path);
+
+        String firstLine = "" ;//返回结果
+
+        File file = new File(path);
+
+        if (!file.exists()) { //如果文件不存在
+
+            LogInfo.info("File Not Exist:" + path);
+
+            return null;
+        }
+
+        try {
+
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+
+            firstLine = reader.readLine();
+
+            reader.close();
+
+        } catch (IOException e) {
+
+            LogInfo.error(e.getMessage());
+
+        }
+
+        return firstLine;
+
+    }
+
+
+
 
     /**
      * 创建文件
@@ -294,7 +386,7 @@ public class FileUtil {
 
 
 
-    public static  boolean writeToFile(String str, String path) {
+    public static  boolean wrStrToFile(String str, String path) {
 
        LogInfo.linel4();
 
@@ -339,7 +431,7 @@ public class FileUtil {
      * @param str 追加字符串
      */
 
-    public  static  boolean strAddToFile(String str,String path ) {
+    public  static  boolean wrStrAddToFile(String str,String path ) {
 
         File file = new File(path);
 
@@ -392,11 +484,10 @@ public class FileUtil {
 
         File file = new File(path);
 
-        if (!file.exists()) { //如果文件不存在
+        if (!file.exists()) { //如果目录不存在
 
             LogInfo.info("目录不存在:" + path);
 
-            return null;
         }
 
 
@@ -415,31 +506,6 @@ public class FileUtil {
 
     }
 
-    /**
-     * 文件名到List
-     * @param FilesPath
-     * @return
-     */
 
-    public static List<String> fileLineToList(String FilesPath) {
-
-        List<String> filesList = new ArrayList<String>();
-
-        File filesNameStr = new File(FilesPath); // 文件所在目录
-
-        String[] files = filesNameStr.list();// 文件
-
-        for (int i = 0; i < files.length; i++) {// 循环读取每个文件
-
-            filesList.add(files[i]);
-
-        }
-
-        System.out.println("--Fiies To List Complate ,Files Path : "
-                + FilesPath);
-
-        return filesList;
-
-    }
 
 }
