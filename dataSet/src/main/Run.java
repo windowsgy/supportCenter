@@ -1,7 +1,8 @@
 package main;
 
 
-import main.Check.Check;
+import utils.internal.DTUtils;
+import utils.internal.LogInfo;
 
 
 import java.util.List;
@@ -17,11 +18,22 @@ public class Run {
 
     public static void run(){
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("输入日期............(日期格式:YYYY-MM)");
-        Init.inputDate = input.nextLine().trim();
 
-        Check.run(); //检查
+
+
+        if(!CheckFiles.run()){//文件检查
+
+            return;
+
+        }
+
+
+        if(!CheckFileInfo.run()){//文件信息检查
+
+            return;
+
+        }
+
 
         Load.run();//加载文件
 

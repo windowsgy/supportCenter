@@ -1,5 +1,6 @@
 package main;
 
+import main.Parm.BuildParm;
 import utils.fileutils.FileUtil;
 import utils.internal.LogInfo;
 
@@ -17,7 +18,7 @@ public class WrMap {
 
         LogInfo.info("创建拆分文件目录");
 
-        FileUtil.createDir(Init.SPLIT_PATH+Init.inputDate);
+        FileUtil.createDir(BuildParm.SPLIT_PATH+ BuildParm.inputDate);
 
         StringBuilder sb = new StringBuilder();
 
@@ -25,7 +26,7 @@ public class WrMap {
 
             String fileName = key+".csv";
 
-            String filePath = Init.SPLIT_PATH+fileName;
+            String filePath = BuildParm.SPLIT_PATH+fileName;
 
             List<String> list = map.get(key);
 

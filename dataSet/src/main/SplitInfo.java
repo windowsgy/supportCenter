@@ -1,5 +1,7 @@
 package main;
 
+import main.Parm.BuildParm;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,9 +18,9 @@ public class SplitInfo {
 
         Map<String,List<String>> map = new HashMap<>();
 
-        for(int i = 0 ; i < Init.summaryListArr.size();i++){
+        for(int i = 0; i < BuildParm.summaryListArr.size(); i++){
 
-            String id = Init.summaryListArr.get(i)[0];//ID
+            String id = BuildParm.summaryListArr.get(i)[0];//ID
 
             List<String> detailList = findData(id);//明细信息
 
@@ -41,11 +43,11 @@ public class SplitInfo {
 
         List<String> list = new ArrayList<>();
 
-        for(int i = 0 ; i < Init.detailListArr.size() ; i ++){
+        for(int i = 0; i < BuildParm.detailListArr.size() ; i ++){
 
-            if(Init.detailListArr.get(i)[0].trim().equals(findStr)){
+            if(BuildParm.detailListArr.get(i)[0].trim().equals(findStr)){
 
-                list.add(Init.detailList.get(i));
+                list.add(BuildParm.detailList.get(i));
 
             }
 

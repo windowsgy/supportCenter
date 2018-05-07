@@ -1,6 +1,6 @@
-package main.Check;
+package main;
 
-import main.Init;
+import main.Parm.BuildParm;
 import utils.internal.ListUtil;
 import utils.internal.LogInfo;
 
@@ -19,71 +19,71 @@ public class CheckFileInfo {
 
     public static boolean run(){
 
-        if(Init.summaryFileHead== null || Init.summaryFileHead.length()<2){
+        if(BuildParm.summaryFileHead== null || BuildParm.summaryFileHead.length()<2){
 
             LogInfo.info("摘要文件头信息不完整");
 
             return false;
 
-        }   else if(Init.detailFileHead== null || Init.detailFileHead.length()<2){
+        }   else if(BuildParm.detailFileHead== null || BuildParm.detailFileHead.length()<2){
 
             LogInfo.info("明细文件头信息不完整");
 
             return false;
 
-        }   else if(Init.summaryList == null || Init.summaryList.size()<1){
+        }   else if(BuildParm.summaryList == null || BuildParm.summaryList.size()<1){
 
             LogInfo.info("摘要文件信息为空");
 
             return false;
 
-        }   else if(Init.detailList == null || Init.detailList.size()<1){
+        }   else if(BuildParm.detailList == null || BuildParm.detailList.size()<1){
 
             LogInfo.info("明细文件信息为空");
 
             return false;
 
-        }   else if (Init.summaryJoinField.size()!= ListUtil.listToSet(Init.summaryJoinField).size()){
+        }   else if (BuildParm.summaryJoinField.size()!= ListUtil.listToSet(BuildParm.summaryJoinField).size()){
 
             LogInfo.info("摘要文件Join信息不唯一");
 
             return false;
 
-        }   else if (Init.summaryJoinField.size()!= ListUtil.listToSet(Init.detailJoinField).size()){
+        }   else if (BuildParm.summaryJoinField.size()!= ListUtil.listToSet(BuildParm.detailJoinField).size()){
 
             LogInfo.info("摘要文件Join信息与明细文件Join信息数量不一致");
 
             return false;
 
-        }   else if (Init.detailDetailField.size()!= ListUtil.listToSet(Init.detailDetailField).size()){
+        }   else if (BuildParm.detailDetailField.size()!= ListUtil.listToSet(BuildParm.detailDetailField).size()){
 
             LogInfo.info("明细文件名字字段不唯一");
 
             return false;
 
 
-        }   else if (ListUtil.listToSet(Init.detailDateField).size()>1){
+        }   else if (ListUtil.listToSet(BuildParm.detailDateField).size()>1){
 
             LogInfo.info("明细文件日期字段不唯一");
 
             return false;
 
 
-        }   else if (!ListUtil.listToSet(Init.detailDateField).contains(Init.inputDate)){
+        }   else if (!ListUtil.listToSet(BuildParm.detailDateField).contains(BuildParm.inputDate)){
 
             LogInfo.info("明细文件日期字段与输入日期不一致");
 
             return false;
 
 
-        }   else if (!(ListUtil.listToSet(Init.summaryMailField).size()!= Init.summaryMailField.size())){
+        }   else if (!(ListUtil.listToSet(BuildParm.summaryMailField).size()!= BuildParm.summaryMailField.size())){
 
             LogInfo.info("邮件信息不唯一");
 
             return false;
 
 
-        }   else if (Init.summaryJoinField.size()!= Init.summaryMailField.size()){
+        }   else if (BuildParm.summaryJoinField.size()!= BuildParm.summaryMailField.size()){
 
             LogInfo.info("邮件信息与关联信息数量不一致");
 
