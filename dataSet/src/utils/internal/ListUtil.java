@@ -30,6 +30,7 @@ public class ListUtil {
             listArray.add(aList.split(splitChar));
 
         }
+        LogInfo.linel4();
 
         return listArray;
 
@@ -56,6 +57,7 @@ public class ListUtil {
             list.add(aListArray[index]);
 
         }
+        LogInfo.linel4();
 
         return list;
 
@@ -70,6 +72,10 @@ public class ListUtil {
 
     public  static Set<String> listToSet(List<String> list){
 
+        LogInfo.linel4();
+
+        LogInfo.info("List To Set :");
+
         Set<String> set = new HashSet<>();
 
         for(int i = 0 ; i < list.size();i++){
@@ -77,6 +83,8 @@ public class ListUtil {
             set.add(list.get(i));
 
         }
+
+        LogInfo.linel4();
 
         return set;
 

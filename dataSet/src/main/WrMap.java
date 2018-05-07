@@ -18,15 +18,17 @@ public class WrMap {
 
         LogInfo.info("创建拆分文件目录");
 
-        FileUtil.createDir(BuildParm.SPLIT_PATH+ BuildParm.inputDate);
+        FileUtil.createDir(BuildParm.SPLIT_SUBPATH);
 
         StringBuilder sb = new StringBuilder();
+
+        sb.append(BuildParm.detailFileHead).append("\r");
 
         for (String key : map.keySet()) {
 
             String fileName = key+".csv";
 
-            String filePath = BuildParm.SPLIT_PATH+fileName;
+            String filePath = BuildParm.SPLIT_SUBPATH+fileName;
 
             List<String> list = map.get(key);
 

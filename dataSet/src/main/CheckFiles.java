@@ -22,8 +22,8 @@ public class CheckFiles {
     public static boolean run(){
         //检查拆分文件是否存在
         LogInfo.info("File Check");
-        if(FileUtil.isDir(BuildParm.SPLIT_PATH)){//检查拆分文件
-            LogInfo.error(BuildParm.SPLIT_SUBPATH+"拆分文件的目录已经存在。");
+        if(FileUtil.isDir(BuildParm.SPLIT_SUBPATH)){//检查拆分文件
+            LogInfo.error(BuildParm.SPLIT_SUBPATH+"拆分文件的目录已经存在");
             Scanner input = new Scanner(System.in);
             LogInfo.info("是否删除已经拆分的文件?(Y/N)");
             String deleteFilesOnOff = input.nextLine().trim();
@@ -33,7 +33,9 @@ public class CheckFiles {
             }else{
                return false;
             }
-        }else if(!FileUtil.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
+        }
+
+        if(!FileUtil.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
             LogInfo.error(BuildParm.SUMMARY_FILEPATH+"摘要文件不存在");
             return false;
         }else if(!FileUtil.isFile(BuildParm.DETAIL_FILEPATH)){//检查明细文件

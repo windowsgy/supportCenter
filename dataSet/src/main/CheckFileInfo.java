@@ -21,13 +21,13 @@ public class CheckFileInfo {
 
         if(BuildParm.summaryFileHead== null || BuildParm.summaryFileHead.length()<2){
 
-            LogInfo.info("摘要文件头信息不完整");
+            LogInfo.info("摘要文件表头信息不完整");
 
             return false;
 
         }   else if(BuildParm.detailFileHead== null || BuildParm.detailFileHead.length()<2){
 
-            LogInfo.info("明细文件头信息不完整");
+            LogInfo.info("明细文件表头信息不完整");
 
             return false;
 

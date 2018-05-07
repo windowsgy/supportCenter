@@ -16,6 +16,8 @@ public class BuildParm {
 
     public static String inputDate ; //输入时间
 
+    public static String inputDatePath ; //输入时间路径
+
     public static String INPUT_PATH ;//输入路径
     public static String SPLIT_PATH ;//拆分路径
     public static String SPLIT_SUBPATH ;//拆分文件子路径

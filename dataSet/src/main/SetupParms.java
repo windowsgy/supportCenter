@@ -2,6 +2,7 @@ package main;
 
 import main.Parm.BuildParm;
 import main.Parm.InitParm;
+import utils.internal.LogInfo;
 
 /**
  *
@@ -12,9 +13,13 @@ public class SetupParms {
 
    public static void run(){
 
+       LogInfo.info("初始化路径参数");
+
+       BuildParm.inputDatePath = BuildParm.inputDate+"\\";//时间格式路径
+
        BuildParm.INPUT_PATH = InitParm.MAIN_PATH+ InitParm.INPUT_PATHNAME;//输入路径
        BuildParm.SPLIT_PATH = InitParm.MAIN_PATH+ InitParm.SPLIT_PATHNAME;//拆分路径
-       BuildParm.SPLIT_SUBPATH =  BuildParm.SPLIT_PATH+BuildParm.inputDate;//拆分文件子路径
+       BuildParm.SPLIT_SUBPATH =  BuildParm.SPLIT_PATH+BuildParm.inputDatePath;//拆分文件子路径
        BuildParm.LOG_PATH = InitParm.MAIN_PATH+ InitParm.LOGS_PATHNAME;//日志路径
 
        BuildParm.SUMMARY_FILENAME = BuildParm.inputDate+"_summary.csv"; //摘要文件名
@@ -26,7 +31,5 @@ public class SetupParms {
        BuildParm.LOGS_FILEPATH = BuildParm.LOG_PATH+ InitParm.LOGS_FILENAME;//日志文件路径
 
    }
-
-
 
 }

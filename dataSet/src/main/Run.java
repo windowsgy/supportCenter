@@ -18,8 +18,13 @@ public class Run {
 
     public static void run(){
 
+        if(!InputParm.run()){
 
+         return;
 
+        }
+
+        SetupParms.run();
 
         if(!CheckFiles.run()){//文件检查
 
@@ -27,6 +32,7 @@ public class Run {
 
         }
 
+        Load.run();
 
         if(!CheckFileInfo.run()){//文件信息检查
 

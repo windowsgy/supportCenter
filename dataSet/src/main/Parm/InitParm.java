@@ -12,14 +12,14 @@ public class InitParm {
 
 
 
-    public static final String MAIN_PATH = "";//主目录
-    public static final String INPUT_PATHNAME = "";//输入目录名称
-    public static final String SPLIT_PATHNAME = "";//拆分路径名称
-    public static final String LOGS_PATHNAME = "";//日志路径名称
+    public static final String MAIN_PATH = "E:\\supportData\\";//主目录
+    public static final String INPUT_PATHNAME = "input\\";//输入目录名称
+    public static final String SPLIT_PATHNAME = "split\\";//拆分路径名称
+    public static final String LOGS_PATHNAME = "log\\";//日志路径名称
 
 
 
-    public static final String LOGS_FILENAME = "";//日志文件名
+    public static final String LOGS_FILENAME = "log.txt";//日志文件名
 
     public static final String SplitStr = ",";
     public static final String DATE_FORMAT = "yyyy-MM";

@@ -16,11 +16,11 @@ public class Load {
 
     public static void  run(){
 
-        LogInfo.info("加载摘要文件头");
+        LogInfo.info("加载摘要文件表头");
 
         BuildParm.summaryFileHead = FileUtil.readFirstLine(BuildParm.SUMMARY_FILEPATH);
 
-        LogInfo.info("加载明细文件头");
+        LogInfo.info("加载明细文件表头");
 
         BuildParm.detailFileHead = FileUtil.readFirstLine(BuildParm.DETAIL_FILEPATH);
 

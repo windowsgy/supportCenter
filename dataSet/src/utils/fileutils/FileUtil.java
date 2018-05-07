@@ -179,9 +179,7 @@ public class FileUtil {
 
        LogInfo.linel4();
 
-       lineNumber = lineNumber - 1 ; //指定行号减1
-
-       LogInfo.info("Read File To StringList:" + path);
+        LogInfo.info("Read File To StringList:" + path);
 
         List<String> list = new ArrayList<>();//返回结果
 
@@ -202,17 +200,21 @@ public class FileUtil {
 
             String line = null;
 
-            long lineCount = 1;
+            int lineCtl = 0; //读取位置控制
+
+            int loadLineCount = 0 ;//读取行数计数
 
             // 一次读入一行，直到读入null为文件结束
 
             while ((line = reader.readLine()) != null) {
 
-                lineCount ++;
+                lineCtl ++;
 
-                if(lineCount>lineNumber){//如果当前行号大于指定行号
+                if(lineCtl>=lineNumber&&(line.trim()!= "")){//如果当前行号大于指定行号
 
-                    list.add(line);
+                    loadLineCount ++;
+
+                    list.add(line.trim());
 
                 }
 
@@ -220,7 +222,8 @@ public class FileUtil {
 
             }
 
-            System.out.println("read"+lineCount+"line");
+
+           LogInfo.info("Load :"+loadLineCount+" line");
 
             reader.close();
 
@@ -246,6 +249,8 @@ public class FileUtil {
             }
 
         }
+
+        LogInfo.linel4();
 
         return list;
 
@@ -279,7 +284,9 @@ public class FileUtil {
 
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
-            firstLine = reader.readLine();
+            firstLine = reader.readLine().trim();
+
+            LogInfo.info("Load First Line");
 
             reader.close();
 
@@ -288,6 +295,8 @@ public class FileUtil {
             LogInfo.error(e.getMessage());
 
         }
+
+        LogInfo.linel4();
 
         return firstLine;
 
@@ -400,7 +409,7 @@ public class FileUtil {
 
                 file.createNewFile();
 
-                LogInfo.info("新建文件 :" + path);
+                LogInfo.info("Create File :" + path);
 
             }
 
@@ -410,6 +419,8 @@ public class FileUtil {
             outToFile.print(str);
 
             outToFile.flush();
+
+            LogInfo.info("Write To  File :" + path);
 
             outToFile.close();
 
@@ -441,7 +452,7 @@ public class FileUtil {
 
                 file.createNewFile();
 
-                LogInfo.info("新建文件 :" + path);
+                LogInfo.info("Create File :" + path);
 
             }
 
@@ -449,6 +460,8 @@ public class FileUtil {
             FileWriter writer = new  FileWriter(path,  true );
 
             writer.write(str);
+
+            LogInfo.info("Write To File :" + path);
 
             writer.close();
 
