@@ -1,6 +1,6 @@
-package main;
+package main.splitFiles;
 
-import main.Parm.BuildParm;
+import main.parm.BuildParm;
 import utils.internal.ListUtil;
 import utils.internal.LogInfo;
 import utils.internal.SetContrastSet;
@@ -56,18 +56,17 @@ public class CheckFileInfo {
 
             return false;
 
-        }   else if (!SetContrastSet.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField),ListUtil.listToSet(BuildParm.detailJoinField)){
+        }   else if (!SetContrastSet.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField),ListUtil.listToSet(BuildParm.detailJoinField))) {
 
             LogInfo.info("摘要文件Join信息与明细文件Join信息不一致");
 
             return false;
 
-        } else if (BuildParm.detailDetailField.size()!= ListUtil.listToSet(BuildParm.detailDetailField).size()){
+        } else if (!(BuildParm.detailDetailField.size() != ListUtil.listToSet(BuildParm.detailDetailField).size())){
 
             LogInfo.info("明细文件名字字段不唯一");
 
             return false;
-
 
         }   else if (ListUtil.listToSet(BuildParm.detailDateField).size()>1){
 
@@ -76,7 +75,7 @@ public class CheckFileInfo {
             return false;
 
 
-        }   else if (!ListUtil.listToSet(BuildParm.detailDateField).contains(BuildParm.inputDate)){
+        }   else if (!(ListUtil.listToSet(BuildParm.detailDateField).contains(BuildParm.inputDate))){
 
             LogInfo.info("明细文件日期字段与输入日期不一致");
 

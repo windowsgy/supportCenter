@@ -59,8 +59,8 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>splitFiles/</sourceDirectory>
-        <testSourceDirectory>splitFiles/</testSourceDirectory>
+        <sourceDirectory>dataSplit/</sourceDirectory>
+        <testSourceDirectory>dataSplit/</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>

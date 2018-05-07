@@ -1,4 +1,4 @@
-package main;
+package main.splitFiles;
 
 
 import utils.internal.LogInfo;

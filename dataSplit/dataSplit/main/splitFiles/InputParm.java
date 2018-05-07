@@ -1,7 +1,7 @@
-package main;
+package main.splitFiles;
 
-import main.Parm.BuildParm;
-import main.Parm.InitParm;
+import main.parm.BuildParm;
+import main.parm.InitParm;
 import utils.internal.DTUtils;
 import utils.internal.LogInfo;
 
