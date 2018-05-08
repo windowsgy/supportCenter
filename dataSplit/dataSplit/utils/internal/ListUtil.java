@@ -6,22 +6,24 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ *
  * Created by jlgaoyuan on 2018/5/5.
+ * 
  */
 public class ListUtil {
 
     /**
-     * List 拆分每行至数组
-     * @param path 文件路径
-     * @return L
+     * List To List Array
+     * @param list List
+     * @param splitChar SplitChar
+     * @return List Array
      */
-
 
     public static List<String[]> list2ListArray (List<String> list, String splitChar) {
 
         LogInfo.linel4();
 
-        LogInfo.info("List Line To List Array :");
+        LogInfo.info("List To List Array  Size:"+list.size());
 
         List<String[]> listArray = new ArrayList<>();
 
@@ -38,9 +40,9 @@ public class ListUtil {
 
     /**
      *
-     * @param listArray List数组
-     * @param index 字段
-     * @return
+     * @param listArray List
+     * @param index index
+     * @return List
      */
 
 
@@ -66,7 +68,7 @@ public class ListUtil {
     /**
      * List To Set
      * @param list List
-     * @return
+     * @return Set
      */
 
 
@@ -74,13 +76,13 @@ public class ListUtil {
 
         LogInfo.linel4();
 
-        LogInfo.info("List To Set :");
+        LogInfo.info("List To Set Size:"+list.size());
 
         Set<String> set = new HashSet<>();
 
-        for(int i = 0 ; i < list.size();i++){
+        for (String aList : list) {
 
-            set.add(list.get(i));
+            set.add(aList);
 
         }
 

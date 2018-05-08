@@ -21,7 +21,7 @@ public class InputParm {
 
         String inputDate = input.nextLine().trim();
 
-        if (inputDate.length() != 7) {
+        if (inputDate.length() != 6) {
 
             LogInfo.error("输入时间格式错误");
 
