@@ -28,10 +28,13 @@ public class InitParm {
     public static final int detailIdIndex = 2 ;
     public static final int detailMailIndex = 6 ;
 
-    public static final String mailFrom = ""; // 发件人
-    public static final String mailUsername =""; // 发件人的用户名
-    public static final String mailPassword = ""; // 发件人的密码
+    public static final String mailFrom = "18904420062@189.cn"; // 发件人
+    public static final String mailUsername ="18904420062@189.cn"; // 发件人的用户名
+    public static final String mailPassword = "780504"; // 发件人的密码
     public static final String mailHost = "smtp.189.cn"; // SMTP主机
+
+    public static final String mailSubject = "2018年3月账务信息";
+    public static final String mailContent = "2018年3月账务明细";
 
 
 

@@ -3,8 +3,10 @@ package sendMail;
 
 
 import parm.InputParm;
+import parm.MailStru;
 import parm.SetupParms;
 import utils.internal.LogInfo;
+import java.util.Map;
 
 
 /**
@@ -16,7 +18,7 @@ public class RunSendMail {
 
     public static void run(){
 
-        LogInfo.info("Start Send Mail");
+        LogInfo.info("Send Mail Start");
 
         LogInfo.linel0();
 
@@ -54,9 +56,15 @@ public class RunSendMail {
 
         LogInfo.linel0();
 
-        Load.run();//加载文件
+        Map<String, MailStru> map = MailInfo.run();
 
         LogInfo.linel0();
+
+        LogInfo.info("Mail Count:"+map.size());
+
+        LogInfo.linel0();
+
+        SendMail.run(map);
 
         LogInfo.info("Send Mail End");
 

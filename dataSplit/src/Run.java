@@ -12,9 +12,9 @@ public class Run {
 
     public static void main( String [] args){
 
-        String runParm = args[0];
+      //  String runParm = args[0];
 
-      //  String runParm = "mail";
+        String runParm = "mail";
 
         switch (runParm) {
 
@@ -40,7 +40,7 @@ public class Run {
 
 
         Scanner input = new Scanner(System.in);
-        LogInfo.info("输入任意退出:");
+        LogInfo.info("Press Any Key Exit");
         String end = input.nextLine().trim();
         if(end.length()>0){
             System.exit(0);

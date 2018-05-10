@@ -23,43 +23,43 @@ public class Load {
 
         BuildParm.summaryFileCode = FileUtil.codeString(BuildParm.SUMMARY_FILEPATH);
 
-        LogInfo.info("SUMMARY FILE CODE :"+BuildParm.summaryFileCode);
+        LogInfo.info("Summary File Code :"+BuildParm.summaryFileCode);
 
         BuildParm.detailFileCode = FileUtil.codeString(BuildParm.DETAIL_FILEPATH);
 
-        LogInfo.info("DETAIL FILE CODE :"+BuildParm.detailFileCode);
+        LogInfo.info("Detail File Code :"+BuildParm.detailFileCode);
 
 
-        LogInfo.info("加载汇总文件表头");
+        LogInfo.info("Load Summary File Head");
 
         BuildParm.summaryFileHead = FileUtil.readFirstLine(BuildParm.SUMMARY_FILEPATH,BuildParm.summaryFileCode);
 
-        LogInfo.info("加载汇总文件内容");
+        LogInfo.info("Load Summary File To List");
 
         BuildParm.summaryList = FileUtil.read2List(BuildParm.SUMMARY_FILEPATH,2,BuildParm.detailFileCode);//第二行开始读
 
-        LogInfo.info("加载汇总文件数组");
+        LogInfo.info("Load Summary File To ListArray");
 
         BuildParm.summaryListArr = ListUtil.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
 
         if(BuildParm.summaryListArr == null){
 
-            LogInfo.info("汇总文件字段数量不一致");
+            LogInfo.info("Summary Field Inconformity");//每行字段数量不一致
 
             return false;
 
         }
 
 
-        LogInfo.info("加载汇总文件关联字段");
+        LogInfo.info("Load Summary Join Field ");
 
         BuildParm.summaryJoinField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.summaryJoinIndex);
 
-        LogInfo.info("加载汇总文件邮件信息");
+        LogInfo.info("Load Summary Mail Field");
 
         BuildParm.summaryMailField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.detailMailIndex);
 
-        LogInfo.info("加载拆分文件名称");
+        LogInfo.info("Load SplitFiles Name");
 
         List<String> splitFileList = FileUtil.getFileNameToList(BuildParm.SPLIT_SUBPATH);
 

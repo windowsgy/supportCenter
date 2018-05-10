@@ -61,7 +61,7 @@ public class RunSplitFile {
 
         Load.run();//加载文件
 
-        Map<String,List<String>> map =  SplitInfo.run();//拆分文件
+        Map<String,List<String>> map =  SplitInfo.run();//拆分文件结构
 
         LogInfo.linel0();
 

@@ -21,15 +21,15 @@ public class ListUtil {
 
     public static List<String[]> list2ListArray (List<String> list, String splitChar) {
 
-        LogInfo.linel4();
+      //  LogInfo.linel4();
 
-        LogInfo.info("List To List Array Size:"+list.size());
+      //  LogInfo.info("List To ListArray");
 
         String [] firstArray = list.get(0).split(splitChar); //首行
 
         int firstArraySize = firstArray.length;
 
-        LogInfo.info("First Array Size:"+firstArraySize);
+      //  LogInfo.info("First Array Size:"+firstArraySize);
 
         List<String[]> listArray = new ArrayList<>();
 
@@ -69,9 +69,9 @@ public class ListUtil {
 
     public static  List<String> listArrField (List<String[]> listArray,int index) {
 
-        LogInfo.linel4();
+        //LogInfo.linel4();
 
-        LogInfo.info("ListArrayFieldIndex:"+index);
+      //  LogInfo.info("ListArrayFieldIndex:"+index);
 
         List<String> list = new ArrayList<>();
 
@@ -81,9 +81,9 @@ public class ListUtil {
 
         }
 
-        LogInfo.info("ListFieldSize:"+list.size());
+      //  LogInfo.info("ListFieldSize:"+list.size());
 
-        LogInfo.linel4();
+      //  LogInfo.linel4();
 
         return list;
 
@@ -98,9 +98,9 @@ public class ListUtil {
 
     public  static Set<String> listToSet(List<String> list){
 
-        LogInfo.linel4();
+      //  LogInfo.linel4();
 
-        LogInfo.info("List To Set Size:"+list.size());
+      //  LogInfo.info("List To Set Size:"+list.size());
 
         Set<String> set = new HashSet<>();
 
@@ -110,9 +110,9 @@ public class ListUtil {
 
         }
 
-        LogInfo.info("Set Size:"+set.size());
+     //   LogInfo.info("Set Size:"+set.size());
 
-        LogInfo.linel4();
+     //   LogInfo.linel4();
 
         return set;
 

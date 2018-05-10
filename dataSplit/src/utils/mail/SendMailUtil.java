@@ -34,7 +34,6 @@ public class SendMailUtil {
             String content = map.getContent();
             String fileName = map.getFileName();
             Vector<String> file = map.getFile();
-
             Properties props = System.getProperties();
             props.put("mail.smtp.host", map.getHost()); // 设置SMTP的主机
             props.put("mail.smtp.auth", "true"); // 需要经过验证
@@ -68,7 +67,7 @@ public class SendMailUtil {
                         mappFile.setFileName(toChinese(fds.getName()));
                         mp.addBodyPart(mappFile);
                     }
-                    LogInfo.info("Add File Succeed");
+                    LogInfo.info("Add Attachments File");
                 }
 
                 msg.setContent(mp);
@@ -76,10 +75,17 @@ public class SendMailUtil {
                 Transport.send(msg);
 
             } catch (MessagingException me) {
-                me.printStackTrace();
+
+                LogInfo.error(me.getMessage());
+
+                LogInfo.info("Send Email Fail");
                 return false;
             }
+
+            LogInfo.info("Send Email Succeed");
+
             return true;
+
         }
 
     }

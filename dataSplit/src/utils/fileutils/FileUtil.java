@@ -150,9 +150,9 @@ public class FileUtil {
 
     public static  List<String> read2List (String path ,long lineNumber,String code) {
 
-       LogInfo.linel4();
+      // LogInfo.linel4();
 
-        LogInfo.info("Read File To StringList:" + path);
+     //   LogInfo.info("Read File To StringList:" + path);
 
         List<String> list = new ArrayList<>();//返回结果
 
@@ -196,7 +196,7 @@ public class FileUtil {
             }
 
 
-           LogInfo.info("Load :"+loadLineCount+" line");
+        //   LogInfo.info("Load :"+loadLineCount+" line");
 
             br.close();
 
@@ -223,7 +223,7 @@ public class FileUtil {
 
         }
 
-        LogInfo.linel4();
+    //    LogInfo.linel4();
 
         return list;
 
@@ -234,7 +234,7 @@ public class FileUtil {
 
     /**
      * 创建文件
-     * @param path
+     * @param path Path
      * @return
      */
 
@@ -273,7 +273,7 @@ public class FileUtil {
 
     /**
      * 删除文件
-     * @param path
+     * @param path path
      * @return
      */
 
@@ -308,7 +308,7 @@ public class FileUtil {
 
         }
 
-       LogInfo.info("delete file succeed:" + path);
+   //    LogInfo.info("delete file succeed:" + path);
 
         return true;
     }
@@ -326,7 +326,7 @@ public class FileUtil {
 
        LogInfo.linel4();
 
-       LogInfo.info("Write To File:" + path);
+     //  LogInfo.info("Write To File:" + path);
 
         try {
 
@@ -336,7 +336,7 @@ public class FileUtil {
 
                 file.createNewFile();
 
-                LogInfo.info("Create File");
+          //      LogInfo.info("Create File");
 
             }
 
@@ -346,7 +346,7 @@ public class FileUtil {
 
             outToFile.flush();
 
-            LogInfo.info("Write To File Succeed");
+         //   LogInfo.info("Write To File Succeed");
 
             outToFile.close();
 
@@ -373,9 +373,9 @@ public class FileUtil {
 
     public static  boolean wrStrToFile(String str, String path,String code) {
 
-        LogInfo.linel4();
+     //   LogInfo.linel4();
 
-        LogInfo.info("Write To File:" + path);
+     //   LogInfo.info("Write To File:" + path);
 
         try {
 
@@ -385,7 +385,7 @@ public class FileUtil {
 
                 file.createNewFile();
 
-                LogInfo.info("Create File");
+           //     LogInfo.info("Create File");
 
             }
 
@@ -393,7 +393,7 @@ public class FileUtil {
                     new FileOutputStream(file), code));
             writer.write(str);
             writer.close();
-            LogInfo.info("Write To File Succeed");
+        //    LogInfo.info("Write To File Succeed");
 
         } catch (Exception e) {
 
@@ -425,7 +425,7 @@ public class FileUtil {
 
                 file.createNewFile();
 
-                LogInfo.info("Create File :" + path);
+           //     LogInfo.info("Create File :" + path);
 
             }
 
@@ -434,7 +434,7 @@ public class FileUtil {
 
             writer.write(str);
 
-            LogInfo.info("Write To File :" + path);
+           // LogInfo.info("Write To File :" + path);
 
             writer.close();
 
@@ -466,9 +466,9 @@ public class FileUtil {
 
     public static List<String> getFileNameToList(String path){
 
-        LogInfo.linel4();
+      //  LogInfo.linel4();
 
-        LogInfo.info("读取目录中文件:" + path);
+      //  LogInfo.info("读取目录中文件:" + path);
 
         List<String> list = new ArrayList<>();//返回结果
 
@@ -483,7 +483,7 @@ public class FileUtil {
 
         String filesName [] = file.list();
 
-        LogInfo.info("Files Count : " + filesName.length);
+      //  LogInfo.info("Files Count : " + filesName.length);
 
         for(int i = 0 ; i < filesName.length;i++){
 
@@ -508,7 +508,7 @@ public class FileUtil {
 
         if(!file.exists()){
 
-            LogInfo.info("file not exists "+file.getAbsolutePath());
+          //  LogInfo.info("file not exists "+file.getAbsolutePath());
 
             return code;
 
@@ -561,9 +561,9 @@ public class FileUtil {
 
     public static String readFirstLine (String path,String code) {
 
-        LogInfo.linel4();
+      //  LogInfo.linel4();
 
-        LogInfo.info("Read File First Line :" + path);
+     //   LogInfo.info("Read File First Line :" + path);
 
         String firstLine = "" ;//返回结果
 
@@ -571,7 +571,7 @@ public class FileUtil {
 
         if (!file.exists()) { //如果文件不存在
 
-            LogInfo.info("File Not Exist:" + path);
+       //     LogInfo.info("File Not Exist:" + path);
 
             return null;
         }
@@ -582,7 +582,7 @@ public class FileUtil {
 
             firstLine = br.readLine().trim();
 
-            LogInfo.info("Load First Line");
+         //   LogInfo.info("Load First Line");
 
             br.close();
 
@@ -592,15 +592,10 @@ public class FileUtil {
 
         }
 
-        LogInfo.linel4();
+        //LogInfo.linel4();
 
         return firstLine;
 
     }
-
-
-
-
-
 
 }

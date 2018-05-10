@@ -36,7 +36,7 @@ public class CheckFiles {
         }
 
         if(!FileUtil.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
-            LogInfo.error(BuildParm.SUMMARY_FILEPATH+"摘要文件不存在");
+            LogInfo.error(BuildParm.SUMMARY_FILEPATH+"汇总文件不存在");
             return false;
         }else if(!FileUtil.isFile(BuildParm.DETAIL_FILEPATH)){//检查明细文件
             LogInfo.error(BuildParm.DETAIL_FILEPATH+"明细文件不存在");

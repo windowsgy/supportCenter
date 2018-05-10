@@ -23,8 +23,6 @@ public class SplitInfo {
 
             String id = BuildParm.summaryListArr.get(i)[0].trim();//ID
 
-            LogInfo.info(id);
-
             List<String> detailList = findData(id);//明细信息
 
             map.put(id,detailList);

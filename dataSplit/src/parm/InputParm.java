@@ -17,7 +17,7 @@ public class InputParm {
 
         Scanner input = new Scanner(System.in);
 
-        LogInfo.info("输入日期............(日期格式:YYYY-MM)");
+        LogInfo.info("输入日期............"+ InitParm.DATE_FORMAT);
 
         String inputDate = input.nextLine().trim();
 
