@@ -9,59 +9,33 @@ import java.util.List;
 
 public class FileUtil {
 
-    public static boolean checkPath(String pathStr){
+    /**
+     * 判断路径是否为一个文件
+     * @param filePath 文件路径
+     * @return
+     */
 
-        File path = new File(pathStr);
 
-        if(path.exists()){
+    public static boolean isFile(String filePath) {
 
-           return true;
+        File path = new File(filePath);
 
-        }
-
-        else return false;
-
-    }
-
-    public static boolean isFile(String pathStr){
-
-        File path = new File(pathStr);
-
-        if(path.exists()){
-
-            if(path.isFile()){
-
-                return true;
-
-            }
-
-            else return false;
-
-        }
-
-        else return false;
+        return path.exists() && path.isFile();
 
     }
 
 
-    public static boolean isDir(String pathStr){
+    /**
+     * 判断路径是否为一个目录
+     * @param dirPath 目录路径
+     * @return
+     */
 
-        File path = new File(pathStr);
+    public static boolean isDir(String dirPath) {
 
-        if(path.exists()){
+        File path = new File(dirPath);
 
-            if(path.isDirectory()){
-
-                return true;
-
-            }
-
-            else return false;
-
-
-        }
-
-        else return false;
+        return path.exists() && path.isDirectory();
 
     }
 
@@ -73,7 +47,7 @@ public class FileUtil {
 
     public static void createDir(String path){
 
-       LogInfo.info("开始创建目录:"+path);
+       LogInfo.info("Create Dir:"+path);
 
         File file =new File(path);
 
@@ -81,11 +55,11 @@ public class FileUtil {
 
             file.mkdir();
 
-            LogInfo.info("创建目录:"+path);
+            LogInfo.info("Create Succeed:"+path);
 
         }else {
 
-            LogInfo.info("目录已经存在:"+path);
+            LogInfo.info("Dir Is Exists:"+path);
 
         }
 
@@ -99,28 +73,27 @@ public class FileUtil {
     public static void delDir(String  path){
 
 
-        LogInfo.info("开始删除目录"+path);
+        LogInfo.info("Dir Path : "+path);
 
         File file = new File(path);
 
         if(!file.exists()){//如果目录不存在返回
 
-            LogInfo.info("目录不存在:"+path);
+            LogInfo.info("Dir Not Exists:"+path);
 
-            return;
+            return ;
 
         }
 
         file.delete();
 
-        LogInfo.info("删除目录完成"+path);
+        LogInfo.info("Dir Delete Succeed"+path);
 
     }
 
     /**
      * 删除目录中的文件
      * @param path 路径
-     * @return
      */
 
 
@@ -134,7 +107,7 @@ public class FileUtil {
 
             if(!files.exists()){//如果目录不存在返回
 
-                LogInfo.info("目录不存在:"+path);
+                LogInfo.info("Dir Not Exists:"+path);
 
                 return;
 
@@ -150,9 +123,9 @@ public class FileUtil {
 
             }else {
 
-                for (int i = 0; i < file.length; i++) {
+                for (String aFile : file) {
 
-                    String full_filePath = files.getPath() + "/" + file[i];
+                    String full_filePath = files.getPath() + "/" + aFile;
 
                     File f = new File(full_filePath);
 
@@ -175,7 +148,7 @@ public class FileUtil {
      * @return
      */
 
-    public static  List<String> read2List (String path ,long lineNumber) {
+    public static  List<String> read2List (String path ,long lineNumber,String code) {
 
        LogInfo.linel4();
 
@@ -192,11 +165,11 @@ public class FileUtil {
             return list;
         }
 
-        BufferedReader reader = null;
+        BufferedReader br = null;
 
         try {
 
-            reader = new BufferedReader(new FileReader(file));
+            br = new BufferedReader(new InputStreamReader(new FileInputStream(file),code));
 
             String line = null;
 
@@ -206,7 +179,7 @@ public class FileUtil {
 
             // 一次读入一行，直到读入null为文件结束
 
-            while ((line = reader.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
 
                 lineCtl ++;
 
@@ -225,7 +198,7 @@ public class FileUtil {
 
            LogInfo.info("Load :"+loadLineCount+" line");
 
-            reader.close();
+            br.close();
 
         } catch (IOException e) {
 
@@ -234,11 +207,11 @@ public class FileUtil {
 
         } finally {
 
-            if (reader != null) {
+            if (br != null) {
 
                 try {
 
-                    reader.close();
+                    br.close();
 
                 } catch (IOException E) {
 
@@ -256,52 +229,6 @@ public class FileUtil {
 
     }
 
-    /**
-     * 读取文件第一行
-     * @param path 文件路径
-     * @return L
-     */
-
-
-    public static String readFirstLine (String path) {
-
-        LogInfo.linel4();
-
-        LogInfo.info("Read File First Line :" + path);
-
-        String firstLine = "" ;//返回结果
-
-        File file = new File(path);
-
-        if (!file.exists()) { //如果文件不存在
-
-            LogInfo.info("File Not Exist:" + path);
-
-            return null;
-        }
-
-        try {
-
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-
-            firstLine = reader.readLine().trim();
-
-            LogInfo.info("Load First Line");
-
-            reader.close();
-
-        } catch (IOException e) {
-
-            LogInfo.error(e.getMessage());
-
-        }
-
-        LogInfo.linel4();
-
-        return firstLine;
-
-    }
-
 
 
 
@@ -315,7 +242,7 @@ public class FileUtil {
 
        LogInfo.linel4();
 
-       LogInfo.info("创建文件:" + path);
+       LogInfo.info("Create File:" + path);
 
         File file = new File(path);
 
@@ -336,7 +263,7 @@ public class FileUtil {
 
         } else {
 
-           LogInfo.info("文件已经存在");
+            LogInfo.info("file exists");
 
         }
 
@@ -354,7 +281,7 @@ public class FileUtil {
 
        LogInfo.linel4();
 
-       LogInfo.info("删除文件:" + path);
+       LogInfo.info("delete File :" + path);
 
         File file = new File(path);
 
@@ -375,13 +302,13 @@ public class FileUtil {
 
         } else {
 
-           LogInfo.info("文件不存在");
+           LogInfo.info("file exists");
 
            return true;
 
         }
 
-       LogInfo.info("删除文件完成:" + path);
+       LogInfo.info("delete file succeed:" + path);
 
         return true;
     }
@@ -413,14 +340,13 @@ public class FileUtil {
 
             }
 
-            PrintWriter outToFile = new PrintWriter(new BufferedWriter(
-                    new FileWriter(file.getPath())));
+            PrintWriter outToFile = new PrintWriter(new BufferedWriter(new FileWriter(file.getPath())));
 
             outToFile.print(str);
 
             outToFile.flush();
 
-            LogInfo.info("Write To File");
+            LogInfo.info("Write To File Succeed");
 
             outToFile.close();
 
@@ -435,6 +361,53 @@ public class FileUtil {
         return true;
 
     }
+
+    /**
+     *
+     * @param str 字符串
+     * @param path 文件路径
+     * @param code 字符编码
+     * @return
+     */
+
+
+    public static  boolean wrStrToFile(String str, String path,String code) {
+
+        LogInfo.linel4();
+
+        LogInfo.info("Write To File:" + path);
+
+        try {
+
+            File file = new File(path);
+
+            if (!file.exists()) {
+
+                file.createNewFile();
+
+                LogInfo.info("Create File");
+
+            }
+
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(file), code));
+            writer.write(str);
+            writer.close();
+            LogInfo.info("Write To File Succeed");
+
+        } catch (Exception e) {
+
+            LogInfo.error(e.getMessage());
+
+            return false;
+
+        }
+
+        return true;
+
+    }
+
+
 
     /**
      * 追加写入文件
@@ -480,6 +453,10 @@ public class FileUtil {
     }
 
 
+
+
+
+
     /**
      * 获取文件名称到List
      * @param path 路径
@@ -499,14 +476,14 @@ public class FileUtil {
 
         if (!file.exists()) { //如果目录不存在
 
-            LogInfo.info("目录不存在:" + path);
+            LogInfo.info("Dir Not Exists:" + path);
 
         }
 
 
         String filesName [] = file.list();
 
-        LogInfo.info("目录中文件数量 : " + path);
+        LogInfo.info("Files Count : " + filesName.length);
 
         for(int i = 0 ; i < filesName.length;i++){
 
@@ -518,6 +495,111 @@ public class FileUtil {
 
 
     }
+    /**
+     * 判断文件的编码格式
+     * @param filePath filePath
+     * @return 文件编码格式
+     */
+    public static String codeString(String filePath){
+
+        String code = null;
+
+        File file = new File(filePath);
+
+        if(!file.exists()){
+
+            LogInfo.info("file not exists "+file.getAbsolutePath());
+
+            return code;
+
+        }
+
+        try{
+
+            BufferedInputStream bin = new BufferedInputStream( new FileInputStream(file));
+            int p = (bin.read() << 8) + bin.read();
+
+            //其中的 0xefbb、0xfffe、0xfeff、0x5c75这些都是这个文件的前面两个字节的16进制数
+            switch (p) {
+                case 0xefbb:
+                    code = "UTF-8";
+                    break;
+                case 0xfffe:
+                    code = "Unicode";
+                    break;
+                case 0xfeff:
+                    code = "UTF-16BE";
+                    break;
+                case 0x5c75:
+                    code = "ANSI|ASCII" ;
+                    break ;
+                default:
+                    code = "GBK";
+            }
+
+
+
+
+
+        }catch (Exception e){
+
+            LogInfo.error(e.getMessage());
+
+        }
+
+
+        return code;
+
+    }
+
+    /**
+     * 读取文件第一行
+     * @param path 文件路径
+     * @return L
+     */
+
+
+    public static String readFirstLine (String path,String code) {
+
+        LogInfo.linel4();
+
+        LogInfo.info("Read File First Line :" + path);
+
+        String firstLine = "" ;//返回结果
+
+        File file = new File(path);
+
+        if (!file.exists()) { //如果文件不存在
+
+            LogInfo.info("File Not Exist:" + path);
+
+            return null;
+        }
+
+        try {
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),code));
+
+            firstLine = br.readLine().trim();
+
+            LogInfo.info("Load First Line");
+
+            br.close();
+
+        } catch (IOException e) {
+
+            LogInfo.error(e.getMessage());
+
+        }
+
+        LogInfo.linel4();
+
+        return firstLine;
+
+    }
+
+
+
 
 
 

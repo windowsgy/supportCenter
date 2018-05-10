@@ -1,6 +1,7 @@
 package main.splitFiles;
 
 import main.parm.BuildParm;
+import utils.internal.LogInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,9 @@ public class SplitInfo {
 
         for(int i = 0; i < BuildParm.summaryListArr.size(); i++){
 
-            String id = BuildParm.summaryListArr.get(i)[0];//ID
+            String id = BuildParm.summaryListArr.get(i)[0].trim();//ID
+
+            LogInfo.info(id);
 
             List<String> detailList = findData(id);//明细信息
 
@@ -36,18 +39,22 @@ public class SplitInfo {
     /**
      *
      * @param findStr 查找字段
-     * @return
+     * @return list
      */
 
-    public static List<String> findData(String findStr){
+     static List<String> findData(String findStr){
 
         List<String> list = new ArrayList<>();
 
-        for(int i = 0; i < BuildParm.detailListArr.size() ; i ++){
+        for(int i = 0; i < BuildParm.detailList.size() ; i ++){
 
-            if(BuildParm.detailListArr.get(i)[0].trim().equals(findStr)){
+            String line = BuildParm.detailList.get(i).trim();
 
-                list.add(BuildParm.detailList.get(i));
+         //   LogInfo.info(line);
+
+            if(line.indexOf(findStr)==0){
+
+                list.add(line);
 
             }
 

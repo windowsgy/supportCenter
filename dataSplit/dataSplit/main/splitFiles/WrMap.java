@@ -38,8 +38,11 @@ public class WrMap {
 
             }
 
-            FileUtil.wrStrToFile(sb.toString(),filePath);
+            FileUtil.wrStrToFile(sb.toString(),filePath,BuildParm.detailFileCode);
 
+            sb.setLength(0);
+
+            sb.append(BuildParm.detailFileHead).append("\r");
 
         }
 

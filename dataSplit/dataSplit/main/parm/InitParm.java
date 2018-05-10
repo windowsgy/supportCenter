@@ -19,14 +19,14 @@ public class InitParm {
     static final String LOGS_FILENAME = "log.txt";//日志文件名
 
     public static final String SplitStr = ",";
-    public static final String FileNameSplitStr = ".";
+    public static final String FileNameSplitStr = "\\.";
     static final String DATE_FORMAT = "yyyyMM";
 
     public static final int summaryJoinIndex = 0 ;
     public static final int detailJoinIndex = 0 ;
     public static final int detailDateIndex = 1 ;
     public static final int detailIdIndex = 2 ;
-    public static final int detailMailIndex = 8 ;
+    public static final int detailMailIndex = 6 ;
 
     public static final String mailFrom = ""; // 发件人
     public static final String mailUsername =""; // 发件人的用户名

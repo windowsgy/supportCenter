@@ -16,25 +16,45 @@ import java.util.List;
  */
 public class Load {
 
-    public static void  run(){
+    public static boolean  run(){
 
-        LogInfo.info("加载摘要文件表头");
+        LogInfo.info("Loading Files");
 
-        BuildParm.summaryFileHead = FileUtil.readFirstLine(BuildParm.SUMMARY_FILEPATH);
+        BuildParm.summaryFileCode = FileUtil.codeString(BuildParm.SUMMARY_FILEPATH);
 
-        LogInfo.info("加载摘要文件内容");
+        LogInfo.info("SUMMARY FILE CODE :"+BuildParm.summaryFileCode);
 
-        BuildParm.summaryList = FileUtil.read2List(BuildParm.SUMMARY_FILEPATH,2);//第二行开始读
+        BuildParm.detailFileCode = FileUtil.codeString(BuildParm.DETAIL_FILEPATH);
 
-        LogInfo.info("加载摘要文件数组");
+        LogInfo.info("DETAIL FILE CODE :"+BuildParm.detailFileCode);
+
+
+        LogInfo.info("加载汇总文件表头");
+
+        BuildParm.summaryFileHead = FileUtil.readFirstLine(BuildParm.SUMMARY_FILEPATH,BuildParm.summaryFileCode);
+
+        LogInfo.info("加载汇总文件内容");
+
+        BuildParm.summaryList = FileUtil.read2List(BuildParm.SUMMARY_FILEPATH,2,BuildParm.detailFileCode);//第二行开始读
+
+        LogInfo.info("加载汇总文件数组");
 
         BuildParm.summaryListArr = ListUtil.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
 
-        LogInfo.info("加载摘要文件关联字段");
+        if(BuildParm.summaryListArr == null){
+
+            LogInfo.info("汇总文件字段数量不一致");
+
+            return false;
+
+        }
+
+
+        LogInfo.info("加载汇总文件关联字段");
 
         BuildParm.summaryJoinField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.summaryJoinIndex);
 
-        LogInfo.info("加载摘要文件邮件信息");
+        LogInfo.info("加载汇总文件邮件信息");
 
         BuildParm.summaryMailField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.detailMailIndex);
 
@@ -46,7 +66,9 @@ public class Load {
 
         BuildParm.SPLITFILELIST = ListUtil.listArrField(splitFileListArray,0);
 
+        LogInfo.info("Loading Files Succeed");
 
+        return true;
 
     }
 }

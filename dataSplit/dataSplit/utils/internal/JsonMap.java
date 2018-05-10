@@ -15,7 +15,7 @@ public class JsonMap {
 
         List<JsonStru> jsonList = new ArrayList<>();
 
-        List<String> list = FileUtil.read2List(filePath,1);
+        List<String> list = FileUtil.read2List(filePath,1,"UTF-8");
 
         for (int i = 0 ; i < list.size();i++) {
 

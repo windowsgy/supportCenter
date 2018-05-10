@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  * Created by jlgaoyuan on 2018/4/3.
+ *
  */
 public class BuildJsonStru {
 
@@ -14,7 +16,7 @@ public class BuildJsonStru {
 
         List<JsonStru> jsonStru = new ArrayList<>();
 
-        List<String> lineList = FileUtil.read2List(filePath,1);//每行生成LIST
+        List<String> lineList = FileUtil.read2List(filePath,1,"UTF-8");//每行生成LIST
 
         for(int i = 0 ; i < lineList.size();i++){
 

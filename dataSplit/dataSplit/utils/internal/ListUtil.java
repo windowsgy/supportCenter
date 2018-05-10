@@ -23,16 +23,37 @@ public class ListUtil {
 
         LogInfo.linel4();
 
-        LogInfo.info("List To List Array  Size:"+list.size());
+        LogInfo.info("List To List Array Size:"+list.size());
+
+        String [] firstArray = list.get(0).split(splitChar); //首行
+
+        int firstArraySize = firstArray.length;
+
+        LogInfo.info("First Array Size:"+firstArraySize);
 
         List<String[]> listArray = new ArrayList<>();
 
+        int lineCount = 0;
+
         for (String aList : list) {
+
+            lineCount++;
+
+            String [] array = aList.split(splitChar);
+
+            if(array.length!= firstArraySize){
+
+                LogInfo.info(lineCount+" :Line Error : "+aList );
+
+                return null;
+
+
+            }
+
 
             listArray.add(aList.split(splitChar));
 
         }
-        LogInfo.linel4();
 
         return listArray;
 
@@ -50,7 +71,7 @@ public class ListUtil {
 
         LogInfo.linel4();
 
-        LogInfo.info("ListArrayField:");
+        LogInfo.info("ListArrayFieldIndex:"+index);
 
         List<String> list = new ArrayList<>();
 
@@ -59,6 +80,9 @@ public class ListUtil {
             list.add(aListArray[index]);
 
         }
+
+        LogInfo.info("ListFieldSize:"+list.size());
+
         LogInfo.linel4();
 
         return list;
@@ -85,6 +109,8 @@ public class ListUtil {
             set.add(aList);
 
         }
+
+        LogInfo.info("Set Size:"+set.size());
 
         LogInfo.linel4();
 

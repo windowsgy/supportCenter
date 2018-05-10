@@ -16,9 +16,11 @@ import java.util.Map;
  */
 public class RunSplitFile {
 
-    public static void main( String [] args){
+    public static void run(){
 
         LogInfo.info("Start Split Files");
+
+        LogInfo.linel0();
 
         if(!InputParm.run()){
 
@@ -26,7 +28,11 @@ public class RunSplitFile {
 
         }
 
+        LogInfo.linel0();
+
         SetupParms.run();
+
+        LogInfo.linel0();
 
         if(!CheckFiles.run()){//文件检查
 
@@ -34,7 +40,15 @@ public class RunSplitFile {
 
         }
 
-        Load.run();
+        LogInfo.linel0();
+
+        if(!Load.run()){//加载文件
+
+            return;
+
+        }
+
+        LogInfo.linel0();
 
         if(!CheckFileInfo.run()){//文件信息检查
 
@@ -42,12 +56,17 @@ public class RunSplitFile {
 
         }
 
+        LogInfo.linel0();
 
         Load.run();//加载文件
 
         Map<String,List<String>> map =  SplitInfo.run();//拆分文件
 
+        LogInfo.linel0();
+
         WrMap.run(map); ///拆分文件写入
+
+        LogInfo.linel0();
 
         LogInfo.info("Split Files End");
 
