@@ -1,6 +1,6 @@
-package main.splitFiles;
+package splitFiles;
 
-import main.parm.BuildParm;
+import parm.BuildParm;
 import utils.fileutils.FileUtil;
 import utils.internal.LogInfo;
 

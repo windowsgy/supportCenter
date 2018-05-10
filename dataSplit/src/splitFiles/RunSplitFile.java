@@ -1,8 +1,9 @@
-package main.splitFiles;
+package splitFiles;
 
 
-import main.parm.InputParm;
-import main.parm.SetupParms;
+
+import parm.InputParm;
+import parm.SetupParms;
 import utils.internal.LogInfo;
 
 import java.util.List;

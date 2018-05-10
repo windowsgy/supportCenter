@@ -1,6 +1,6 @@
-package main.sendMail;
+package sendMail;
 
-import main.parm.MailStru;
+import parm.MailStru;
 import utils.internal.LogInfo;
 import utils.mail.SendMailUtil;
 

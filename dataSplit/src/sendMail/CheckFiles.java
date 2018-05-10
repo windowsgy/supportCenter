@@ -1,10 +1,11 @@
-package main.sendMail;
+package sendMail;
 
-import main.parm.BuildParm;
+
+import parm.BuildParm;
 import utils.fileutils.FileUtil;
 import utils.internal.LogInfo;
 
-import java.util.Scanner;
+
 
 
 /**

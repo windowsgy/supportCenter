@@ -1,9 +1,9 @@
-package main.sendMail;
+package sendMail;
 
 
-import main.parm.InputParm;
-import main.parm.SetupParms;
-import sun.rmi.runtime.Log;
+
+import parm.InputParm;
+import parm.SetupParms;
 import utils.internal.LogInfo;
 
 

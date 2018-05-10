@@ -1,7 +1,6 @@
-package main;
 
-import main.sendMail.RunSendMail;
-import main.splitFiles.RunSplitFile;
+import sendMail.RunSendMail;
+import splitFiles.RunSplitFile;
 import utils.internal.LogInfo;
 
 /**

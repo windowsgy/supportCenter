@@ -1,12 +1,12 @@
-package main.sendMail;
+package sendMail;
 
-import main.parm.BuildParm;
-import main.parm.InitParm;
-import main.parm.MailStru;
 
-import java.util.ArrayList;
+
+import parm.BuildParm;
+import parm.InitParm;
+import parm.MailStru;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class MailInfo {
 
-    public static  Map<String,MailStru> run (){
+    public static  Map<String, MailStru> run (){
 
         Map<String,MailStru> map = new HashMap<>();
 

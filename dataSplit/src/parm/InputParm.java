@@ -1,7 +1,7 @@
-package main.parm;
+package parm;
 
-import main.parm.BuildParm;
-import main.parm.InitParm;
+
+
 import utils.internal.DTUtils;
 import utils.internal.LogInfo;
 

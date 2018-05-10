@@ -1,6 +1,7 @@
-package main.sendMail;
+package sendMail;
 
-import main.parm.BuildParm;
+
+import parm.BuildParm;
 import utils.internal.ListUtil;
 import utils.internal.LogInfo;
 import utils.internal.SetContrastSet;
