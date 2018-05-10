@@ -9,7 +9,7 @@ public class InitParm {
 
 
 
-    static final String MAIN_PATH = "E:\\supportData\\";//主目录
+    static final String MAIN_PATH = "E:\\supportDir\\supportData\\";//主目录
     static final String INPUT_PATHNAME = "input\\";//输入目录名称
     static final String SPLIT_PATHNAME = "split\\";//拆分路径名称
     static final String LOGS_PATHNAME = "log\\";//日志路径名称
