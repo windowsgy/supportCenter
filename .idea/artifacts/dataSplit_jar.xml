@@ -2,6 +2,9 @@
   <artifact type="jar" name="dataSplit:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/dataSplit_jar</output-path>
     <root id="archive" name="dataSplit.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/dataSplit/META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="dataSplit" />
       <element id="extracted-dir" path="$USER_HOME$/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar" path-in-jar="/" />

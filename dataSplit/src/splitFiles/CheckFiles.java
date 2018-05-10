@@ -27,7 +27,7 @@ public class CheckFiles {
             Scanner input = new Scanner(System.in);
             LogInfo.info("是否删除已经拆分的文件?(Y/N)");
             String deleteFilesOnOff = input.nextLine().trim();
-            if(deleteFilesOnOff.equals("Y")){
+            if(deleteFilesOnOff.equals("Y")||deleteFilesOnOff.equals("y")){
                FileUtil.deleteFiles(BuildParm.SPLIT_SUBPATH);
                FileUtil.delDir(BuildParm.SPLIT_SUBPATH);
             }else{
