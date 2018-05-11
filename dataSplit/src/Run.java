@@ -12,9 +12,9 @@ public class Run {
 
     public static void main( String [] args){
 
-      //  String runParm = args[0];
+        String runParm = args[0];
 
-        String runParm = "mail";
+     //   String runParm = "split";
 
         switch (runParm) {
 

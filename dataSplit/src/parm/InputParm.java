@@ -17,19 +17,19 @@ public class InputParm {
 
         Scanner input = new Scanner(System.in);
 
-        LogInfo.info("输入日期............"+ InitParm.DATE_FORMAT);
+        LogInfo.info("InputDate............"+ InitParm.DATE_FORMAT);
 
         String inputDate = input.nextLine().trim();
 
         if (inputDate.length() != 6) {
 
-            LogInfo.error("输入时间格式错误");
+            LogInfo.error("Date Format Error");
 
             return false;
 
         } else if (!DTUtils.dateFormatCheak(inputDate, InitParm.DATE_FORMAT)) {
 
-            LogInfo.error("输入时间格式错误");
+            LogInfo.error("Date Format Error");
 
             return false;
 

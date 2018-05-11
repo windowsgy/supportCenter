@@ -99,9 +99,9 @@ public class FileUtil {
 
     public static void  deleteFiles(String path) {
 
-        LogInfo.linel4();
+     //   LogInfo.linel4();
 
-        LogInfo.info("删除目录中的文件:" + path);
+       // LogInfo.info("delete Files:" + path);
 
             File files = new File(path);
 
@@ -117,7 +117,7 @@ public class FileUtil {
 
             if (file.length==0) {
 
-                LogInfo.info("目录中文件为空:"+path);
+                LogInfo.info("dir is null:"+path);
 
                 return;
 
@@ -135,7 +135,7 @@ public class FileUtil {
 
             }
 
-        LogInfo.info("删除目录的文件完成:" + path);
+       // LogInfo.info("delete files succeed:" + path);
 
 
         }

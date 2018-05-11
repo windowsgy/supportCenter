@@ -16,7 +16,7 @@ public class WrMap {
 
     public static void run(Map<String,List<String>> map){
 
-        LogInfo.info("创建拆分文件目录");
+        LogInfo.info("create split dir");
 
         FileUtil.createDir(BuildParm.SPLIT_SUBPATH);
 
