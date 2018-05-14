@@ -3,7 +3,6 @@ package splitFiles;
 import parm.BuildParm;
 import utils.fileutils.FileUtil;
 import utils.internal.LogInfo;
-
 import java.util.List;
 import java.util.Map;
 

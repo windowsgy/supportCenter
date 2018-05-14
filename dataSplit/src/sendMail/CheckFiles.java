@@ -24,11 +24,11 @@ public class CheckFiles {
         //检查拆分文件是否存在
         LogInfo.info("File Check");
         if(!FileUtil.isDir(BuildParm.SPLIT_SUBPATH)){//检查拆分文件
-            LogInfo.error(BuildParm.SPLIT_SUBPATH+"拆分文件目录不存在");
+            LogInfo.error("Split Dir Not Exist"+BuildParm.SPLIT_SUBPATH);
             return false;
         }
         if(!FileUtil.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
-            LogInfo.error(BuildParm.SUMMARY_FILEPATH+"汇总文件不存在");
+            LogInfo.error("Summary Files Not Exist"+BuildParm.SUMMARY_FILEPATH);
             return false;
         }
         LogInfo.info("File Check Succeed");

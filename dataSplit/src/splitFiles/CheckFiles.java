@@ -23,7 +23,7 @@ public class CheckFiles {
         //检查拆分文件是否存在
         LogInfo.info("File Check");
         if(FileUtil.isDir(BuildParm.SPLIT_SUBPATH)){//检查拆分文件
-            LogInfo.error(BuildParm.SPLIT_SUBPATH+"Split Files Is Exist");
+            LogInfo.warn("Split Files Is Exist "+BuildParm.SPLIT_SUBPATH);
             Scanner input = new Scanner(System.in);
             LogInfo.info("delete Split Files(Y/N)");
             String deleteFilesOnOff = input.nextLine().trim();
@@ -36,10 +36,10 @@ public class CheckFiles {
         }
 
         if(!FileUtil.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
-            LogInfo.error(BuildParm.SUMMARY_FILEPATH+"summary File Not Exist");
+            LogInfo.error("summary File Not Exist "+BuildParm.SUMMARY_FILEPATH);
             return false;
         }else if(!FileUtil.isFile(BuildParm.DETAIL_FILEPATH)){//检查明细文件
-            LogInfo.error(BuildParm.DETAIL_FILEPATH+"detail File Not Exist");
+            LogInfo.error("detail File Not Exist "+BuildParm.DETAIL_FILEPATH);
             return false;
         }
         LogInfo.info("File Check Succeed");

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -115,6 +116,34 @@ public class ListUtil {
      //   LogInfo.linel4();
 
         return set;
+
+    }
+
+    /**
+     *
+     * @param list List
+     * @param regex Regex
+     * @return List
+     */
+
+
+    public static  List<String> listFilter (List<String> list,String regex) {
+
+        List<String> filterList = new ArrayList<>();
+
+        for(int i = 0 ; i < list.size();i++){
+
+            String line = list.get(i);
+
+            if(Pattern.matches(regex, line)){
+
+                filterList.add(line);
+
+            }
+
+        }
+
+        return filterList;
 
     }
 

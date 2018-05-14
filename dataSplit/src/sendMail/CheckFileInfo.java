@@ -4,6 +4,7 @@ package sendMail;
 import parm.BuildParm;
 import utils.internal.ListUtil;
 import utils.internal.LogInfo;
+import utils.internal.Regex;
 import utils.internal.SetContrastSet;
 
 
@@ -41,14 +42,21 @@ public class CheckFileInfo {
 
             return false;
 
-        }     else if (BuildParm.summaryJoinField.size()!= BuildParm.summaryMailField.size()){
+        }     else if (BuildParm.summaryMailField.size()!= ListUtil.listFilter(BuildParm.summaryMailField, Regex.REGEX_EMAIL).size()){
+
+            LogInfo.info("E-Mail 地址格式存在错误 ");
+
+            return false;
+
+        } else if (BuildParm.summaryJoinField.size()!= BuildParm.summaryMailField.size()){
 
             LogInfo.info("汇总文件的关联字段与邮件信息数量不一致");
 
             return false;
 
+        }
 
-        }else if (BuildParm.summaryJoinField.size()!= BuildParm.SPLITFILELIST.size()){
+        else if (BuildParm.summaryJoinField.size()!= BuildParm.SPLITFILELIST.size()){
 
             LogInfo.info("汇总文件关联字段信息与拆分文件数量不一致");
 
