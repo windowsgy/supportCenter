@@ -4,10 +4,9 @@ package sendMail;
 
 import parm.BuildParm;
 import parm.InitParm;
-import parm.MailStru;
+import utils.mail.MailStru;
 import utils.internal.LogInfo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

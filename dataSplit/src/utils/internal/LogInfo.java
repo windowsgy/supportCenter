@@ -1,6 +1,6 @@
 package utils.internal;
 
-import utils.external.DateTime;
+import utils.external.DateTimeUtil;
 import utils.fileutils.FileUtil;
 
 /**
@@ -15,7 +15,7 @@ public class LogInfo {
 
     public static String debug(String x) {
 
-        String message = "[debug][" + DateTime.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
+        String message = "[debug][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
 
         System.out.print(message);
         return message;
@@ -23,7 +23,7 @@ public class LogInfo {
 
     public static String info(String x) {
 
-        String message = "[info ][" + DateTime.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
+        String message = "[info ][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
 
         System.out.print(message);
         return message;
@@ -31,7 +31,7 @@ public class LogInfo {
 
     public static String warn(String x) {
 
-        String message = "[warn ][" + DateTime.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
+        String message = "[warn ][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
 
         System.out.print(message);
         return message;
@@ -41,7 +41,7 @@ public class LogInfo {
     public static String error(String x) {
 
 
-        String message = "[error][" + DateTime.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
+        String message = "[error][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
 
         System.out.print(message);
         return message;

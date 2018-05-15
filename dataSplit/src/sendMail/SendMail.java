@@ -1,7 +1,6 @@
 package sendMail;
 
-import parm.MailStru;
-import sun.rmi.runtime.Log;
+import utils.mail.MailStru;
 import utils.internal.LogInfo;
 import utils.mail.SendMailUtil;
 

@@ -141,11 +141,13 @@ public class FileUtil {
         }
 
 
+
     /**
-     * 读取文件每行至 List
+     *
      * @param path 文件路径
-     * @param lineNumber  从第几行开始读取 包括指定行号
-     * @return
+     * @param lineNumber 从第几行开始读取
+     * @param code 文件编码
+     * @return list
      */
 
     public static  List<String> read2List (String path ,long lineNumber,String code) {

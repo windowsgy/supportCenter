@@ -55,12 +55,20 @@
             <version>1.4.7</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+
 
     </dependencies>
 
     <build>
-        <sourceDirectory>dataSplit/</sourceDirectory>
-        <testSourceDirectory>dataSplit/</testSourceDirectory>
+   <!--     <sourceDirectory>dataSplit/</sourceDirectory>
+        <testSourceDirectory>dataSplit/</testSourceDirectory>-->
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>

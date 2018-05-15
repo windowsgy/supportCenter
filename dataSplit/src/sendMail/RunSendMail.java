@@ -3,7 +3,7 @@ package sendMail;
 
 
 import parm.InputParm;
-import parm.MailStru;
+import utils.mail.MailStru;
 import parm.SetupParms;
 import utils.internal.LogInfo;
 import java.util.Map;
