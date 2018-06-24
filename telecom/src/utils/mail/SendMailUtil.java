@@ -1,7 +1,7 @@
 package utils.mail;
 
 import utils.internal.LogInfo;
-import utils.stru.MailStru;
+import utils.stru.StruMail;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -24,7 +24,7 @@ public class SendMailUtil {
             return text;
         }
 
-        public boolean sendMail(MailStru map) {
+        public boolean sendMail(StruMail map) {
 
             final String username = map.getUsername();
             final String password = map.getPassword();

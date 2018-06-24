@@ -27,7 +27,7 @@ public class InputParm {
 
             return false;
 
-        } else if (!DTUtils.dateFormatCheak(inputDate, InitParm.DATE_FORMAT)) {
+        } else if (!DTUtils.dtFormatCheak(inputDate, InitParm.DATE_FORMAT)) {
 
             LogInfo.error("Date Format Error");
 

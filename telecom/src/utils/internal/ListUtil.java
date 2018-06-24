@@ -1,13 +1,11 @@
 package utils.internal;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
  * Created by jlgaoyuan on 2018/5/5.
+ * List 工具
  */
 public class ListUtil {
 
@@ -35,6 +33,33 @@ public class ListUtil {
         }
         return listArray;
     }
+
+
+    /**
+     * List 按分隔符拆分为  行、列 字段模式
+     *
+     * @param list      List
+     * @param splitChar 分隔符
+     * @return 行、列 列表
+     */
+    public static List<List<String>> list2ListFields(List<String> list, String splitChar) {
+        String[] firstArray = list.get(0).split(splitChar); //首行
+        int firstArraySize = firstArray.length;
+        List<List<String>> theList = new ArrayList<>();
+        int lineCount = 0;
+        for (String lists : list) {
+            lineCount++;
+            String[] array = lists.split(splitChar);
+            if (array.length == firstArraySize) {// 如果此行长度不等于首行字段长度
+                theList.add(Arrays.asList(array));
+            } else {
+                LogInfo.error(lineCount + " :Line Error , Current Line Split Lenght : " + lists);
+                return null;
+            }
+        }
+        return theList;
+    }
+
 
     /**
      * @param listArray List

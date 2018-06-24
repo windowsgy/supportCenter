@@ -1,7 +1,7 @@
-package utils.internal;
+package utils.buildStru;
 
 import utils.fileutils.FileUtil;
-import utils.stru.JsonStru;
+import utils.stru.StruJson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,17 +12,16 @@ import java.util.List;
  */
 public class BuildJsonStru {
 
-    public static List<JsonStru> run(String filePath) {
-        List<JsonStru> jsonStru = new ArrayList<>();
+    public static List<StruJson> run(String filePath) {
+        List<StruJson> struJson = new ArrayList<>();
         List<String> lineList = FileUtil.read2List(filePath, 1, "UTF-8");//每行生成LIST
-        for (int i = 0; i < lineList.size(); i++) {
-            String line = lineList.get(i);
-            JsonStru stru = new JsonStru();
+        for (String line : lineList) {
+            StruJson stru = new StruJson();
             String arr[] = line.split(",");
             stru.setKey(arr[0]);
             stru.setDataType(arr[1]);
-            jsonStru.add(stru);
+            struJson.add(stru);
         }
-        return jsonStru;
+        return struJson;
     }
 }

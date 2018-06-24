@@ -21,11 +21,12 @@ public class ExcelFileUtil {
 
     /**
      * EXCEL 文件转换为map  EXCEL文件中每个表格对应一个Key,  Value List 每行 ，List 每列
+     *
      * @param filePath excel文件路径
      * @return map
      */
-    public static Map<String,List<List<String>>> xlsToString(String filePath) {
-        Map<String,List<List<String>>> map = new HashMap<>();
+    public static Map<String, List<List<String>>> xlsToString(String filePath) {
+        Map<String, List<List<String>>> map = new HashMap<>();
         File xlsFile = new File(filePath);
         if (!xlsFile.exists()) { //判断文件是否存在
             return null;
@@ -44,7 +45,7 @@ public class ExcelFileUtil {
                 for (int rowIndex = firstRowNum; rowIndex <= lastRowNum; rowIndex++) {//遍历row(行 0开始)
                     row = sheet.getRow(rowIndex);
                     if (null != row) {
-                        List<String> cellList = new ArrayList<>() ;//列List
+                        List<String> cellList = new ArrayList<>();//列List
                         int firstCellNum = row.getFirstCellNum();//首列号
                         int lastCellNum = row.getLastCellNum();//尾列号
                         for (int cellIndex = firstCellNum; cellIndex < lastCellNum; cellIndex++) {//遍历cell（列 0开始）

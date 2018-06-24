@@ -1,6 +1,6 @@
 package withjilincity.sendMail;
 
-import utils.stru.MailStru;
+import utils.stru.StruMail;
 import utils.internal.LogInfo;
 import utils.mail.SendMailUtil;
 
@@ -15,13 +15,13 @@ import java.util.Map;
  */
 public class SendMail {
 
-    public static void run(Map<String,MailStru> map) {
+    public static void run(Map<String,StruMail> map) {
         LogInfo.info("Send Mail");
         int succeedCount = 0;
         int failCount = 0 ;
         List<String> failList = new ArrayList<>();
         for (String key : map.keySet()) {
-            MailStru stru = map.get(key);
+            StruMail stru = map.get(key);
             SendMailUtil sm = new SendMailUtil();
             LogInfo.info("From :"+stru.getFrom()+" To :"+ stru.getTo());
             // 发送邮件

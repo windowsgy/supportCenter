@@ -137,9 +137,9 @@ public class DTUtils {
      *
      * @param dateTime   日期时间格式
      * @param dateFormat 时间格式
-     * @return
+     * @return boolean
      */
-    public static boolean dateFormatCheak(String dateTime, String dateFormat) {
+    public static boolean dtFormatCheak(String dateTime, String dateFormat) {
         SimpleDateFormat format = new SimpleDateFormat(dateFormat);// 设置日期转化成功标识
         try {
             format.parse(dateTime);
@@ -153,7 +153,7 @@ public class DTUtils {
      * 时间戳格式字符串转换为 时间段格式 "yyyy-MM-dd HH:mm:ss"
      *
      * @param str 时间戳格式字段
-     * @return
+     * @return 格式化日期时间
      */
     public static String timestampConvTime(String str) {
         String yyyy = str.substring(0, 4);
@@ -239,5 +239,34 @@ public class DTUtils {
         String mi = str.substring(10, 12);
         String ss = "00";
         return yyyy + "/" + mm + "/" + dd + "/" + hh + "/";//HDFS子路径格式
+    }
+
+
+    /**
+     * 日期时间格式检验
+     * @param str 日期时间格式
+     * @return boolean
+     */
+    public static boolean dateTimeFormat(String str){
+        if("yyyy".equals(str)){ return true;}
+        else if("yyyyMM".equals(str)){return true;}
+        else if("yyyyMMdd".equals(str)){return true;}
+        else if("yyyyMMddHH".equals(str)){return true;}
+        else if("yyyyMMddHHmm".equals(str)){return true;}
+        else if("yyyyMMddHHmmss".equals(str)){return true;}
+        else if("yyyyMMddHHmmssSSS".equals(str)){return true;}
+        else if("HH".equals(str)){return true;}
+        else if("HHmm".equals(str)){return true;}
+        else if("HHmmss".equals(str)){return true;}
+        else if("HHmmssSSS".equals(str)){return true;}
+        else if("yyyy-MM".equals(str)){return true;}
+        else if("yyyy-MM-dd".equals(str)){return true;}
+        else if("yyyy-MM-dd HH".equals(str)){return true;}
+        else if("yyyy-MM-dd HH:mm".equals(str)){return true;}
+        else if("yyyy-MM-dd HH:mm:ss".equals(str)){return true;}
+        else if("HH:mm".equals(str)){return true;}
+        else if("HH:mm:ss".equals(str)){return true;}
+        else if("HH:mm:ss:SSS".equals(str)){return true;}
+        else return false;
     }
 }

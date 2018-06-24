@@ -3,7 +3,7 @@ package withjilincity.sendMail;
 
 
 import withjilincity.parm.InputParm;
-import utils.stru.MailStru;
+import utils.stru.StruMail;
 import withjilincity.parm.SetupParms;
 import utils.internal.LogInfo;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class RunSendMail {
             return;
         }
         LogInfo.linel0();
-        Map<String, MailStru> map = MailInfo.run();
+        Map<String, StruMail> map = MailInfo.run();
         LogInfo.linel0();
         LogInfo.info("Mail Count:"+map.size());
         LogInfo.linel0();

@@ -4,7 +4,7 @@ package withjilincity.sendMail;
 
 import withjilincity.parm.BuildParm;
 import withjilincity.parm.InitParm;
-import utils.stru.MailStru;
+import utils.stru.StruMail;
 import utils.internal.LogInfo;
 
 import java.util.HashMap;
@@ -18,13 +18,13 @@ import java.util.Map;
  */
 public class MailInfo {
 
-    public static  Map<String, MailStru> run (){
+    public static  Map<String, StruMail> run (){
         LogInfo.info("Build Mail Stru");
         List<String[]> listArr = BuildParm.summaryListArr;
-        Map<String,MailStru> map = new HashMap<>();
+        Map<String,StruMail> map = new HashMap<>();
         for(int i = 0; i < listArr.size(); i++){
             String [] arr = listArr.get(i);
-            MailStru stru = new MailStru();
+            StruMail stru = new StruMail();
             stru.setFrom(InitParm.mailFrom);// 设置发件人的邮箱
             stru.setUsername(InitParm.mailUsername); // 设置发件人邮箱的用户名
             stru.setPassword(InitParm.mailPassword); // 设置发件人邮箱的密码

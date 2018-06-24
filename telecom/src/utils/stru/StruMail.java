@@ -7,7 +7,7 @@ import java.util.Vector;
  *
  * Created by jlgaoyuan on 2018/5/7.
  */
-public class MailStru {
+public class StruMail {
 
     private String to; // 收件人
     private String from; // 发件人

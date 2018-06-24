@@ -78,7 +78,7 @@ public class FileUtil {
             return true;
         }
         String[] file = files.list();
-        if (file.length == 0) {
+        if (0 == file.length ) {
             LogInfo.info("dir is null:" + path);
             return true;
         } else {

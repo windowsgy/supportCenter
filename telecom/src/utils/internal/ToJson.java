@@ -1,6 +1,6 @@
 package utils.internal;
 
-import utils.stru.JsonStru;
+import utils.stru.StruJson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ToJson {
 
-    public static String run(String arr [], List<JsonStru> list){
+    public static String run(String arr [], List<StruJson> list){
 
         List<String> jsonList = new ArrayList<>();
 

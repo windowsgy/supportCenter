@@ -4,7 +4,7 @@ package utils.stru;
  *
  * Created by jlgaoyuan on 2018/4/2.
  */
-public class JsonStru {
+public class StruJson {
 
     /**
      * key
@@ -29,9 +29,6 @@ public class JsonStru {
     }
 
     public String getDataType() {
-
         return dataType;
     }
-
-
 }

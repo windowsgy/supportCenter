@@ -5,21 +5,21 @@ package utils.internal;
  * 字段监测工具，用于ID,播放类型，统计值检查
  * Created by jlgaoyuan on 2017/8/22.
  */
-public class ChkUtils {
+public class YuemeFieldsChkUtils {
 
     public static boolean isAreaID(String str) {
-        return IsNumber.isInt(str)
+        return Chk4Str.isFormat(str,Regex.REGEX_INT)
                 && str.length() == 6;
     }
 
     public static boolean isNodeID(String str) {
-        return IsNumber.isInt(str)
+        return Chk4Str.isFormat(str,Regex.REGEX_INT)
                 && str.length() == 4;
     }
 
 
     public static boolean isServerID(String str) {
-        return IsNumber.isInt(str)
+        return Chk4Str.isFormat(str,Regex.REGEX_INT)
                 && str.length() == 5;
     }
 
@@ -39,7 +39,7 @@ public class ChkUtils {
     }
 
     public static boolean isValue(String str) { //值必须大于等于0
-        if (IsNumber.isNumeric(str)) {
+        if (Chk4Str.isNumeric(str)) {
             double value = Double.parseDouble(str);
             return value >= 0;
         } else {
@@ -48,7 +48,7 @@ public class ChkUtils {
     }
 
     public static boolean isSampleSize(String str) { //值必须大于等于0
-        if (IsNumber.isInt(str)) {
+        if (Chk4Str.isFormat(str,Regex.REGEX_INT)) {
             int value = Integer.parseInt(str);
             return value >= 0;
         } else {
