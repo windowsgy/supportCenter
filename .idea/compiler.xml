@@ -8,12 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="dataSet" />
         <module name="dataSplit" />
+        <module name="telecom" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dataIntegration" target="1.5" />
       <module name="dataSet" target="1.8" />
-      <module name="dataSplit" target="1.8" />
+      <module name="dataSplit" target="1.7" />
+      <module name="telecom" target="1.7" />
+      <module name="withIPTV" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
