@@ -2,9 +2,9 @@ package withjilincity.splitFiles;
 
 import withjilincity.parm.BuildParm;
 import withjilincity.parm.InitParm;
-import utils.fileutils.FileUtil;
-import utils.internal.ListUtil;
-import utils.internal.LogInfo;
+import utils.base.FileUtil;
+import utils.base.ListUtils;
+import utils.base.LogInfo;
 
 
 /**
@@ -30,27 +30,27 @@ public class Load {
         LogInfo.info("Load Detail File To List");
         BuildParm.detailList = FileUtil.read2List(BuildParm.DETAIL_FILEPATH, 2, BuildParm.detailFileCode);//第二行开始读
         LogInfo.info("Load Summary File ListArray");
-        BuildParm.summaryListArr = ListUtil.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
+        BuildParm.summaryListArr = ListUtils.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
         if (BuildParm.summaryListArr == null) {
             LogInfo.info("Summary Field Inconformity");//每行字段数量不一致
             return false;
         }
         LogInfo.info("Load Summary File Join Field");
-        BuildParm.summaryJoinField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.summaryJoinIndex);
+        BuildParm.summaryJoinField = ListUtils.listArrField(BuildParm.summaryListArr, InitParm.summaryJoinIndex);
         LogInfo.info("Load Mail Field");
-        BuildParm.summaryMailField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.detailMailIndex);
+        BuildParm.summaryMailField = ListUtils.listArrField(BuildParm.summaryListArr, InitParm.detailMailIndex);
         LogInfo.info("Load Detail File ListArray");
-        BuildParm.detailListArr = ListUtil.list2ListArray(BuildParm.detailList, InitParm.SplitStr);
+        BuildParm.detailListArr = ListUtils.list2ListArray(BuildParm.detailList, InitParm.SplitStr);
         if (BuildParm.detailListArr == null) {
             LogInfo.info("Detail Field Inconformity");//每行字段数量不一致
             return false;
         }
         LogInfo.info("Load Detail File Join Field");
-        BuildParm.detailJoinField = ListUtil.listArrField(BuildParm.detailListArr, InitParm.detailJoinIndex);
+        BuildParm.detailJoinField = ListUtils.listArrField(BuildParm.detailListArr, InitParm.detailJoinIndex);
         LogInfo.info("Load Detail File Id Field");
-        BuildParm.detailDetailField = ListUtil.listArrField(BuildParm.detailListArr, InitParm.detailIdIndex);
+        BuildParm.detailDetailField = ListUtils.listArrField(BuildParm.detailListArr, InitParm.detailIdIndex);
         LogInfo.info("Load Detail Date Field");
-        BuildParm.detailDateField = ListUtil.listArrField(BuildParm.detailListArr, InitParm.detailDateIndex);
+        BuildParm.detailDateField = ListUtils.listArrField(BuildParm.detailListArr, InitParm.detailDateIndex);
         LogInfo.info("Loading Files Succeed");
         return true;
     }

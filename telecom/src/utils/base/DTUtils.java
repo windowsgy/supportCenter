@@ -1,4 +1,4 @@
-package utils.internal;
+package utils.base;
 
 
 import java.text.DateFormat;
@@ -82,7 +82,7 @@ public class DTUtils {
      * @param n       时间差
      * @return 计算后时间
      */
-    public static String computeTimeMi(String timeStr, int n) {
+    private static String computeTimeMi(String timeStr, int n) {
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = null;
         try {
@@ -268,5 +268,20 @@ public class DTUtils {
         else if("HH:mm:ss".equals(str)){return true;}
         else if("HH:mm:ss:SSS".equals(str)){return true;}
         else return false;
+    }
+
+    /**
+     * 时间戳格式字符串转换为 ES 时间格式 "yyyy/MM/dd/HH/mm"
+     * @param str 时间戳格式字段
+     * @return
+     */
+    public static String timeFormat2EStime(String str) {
+        String yyyy = str.substring(0, 4);
+        String mm = str.substring(4, 6);
+        String dd = str.substring(6, 8);
+        String hh = str.substring(8, 10);
+        String mi = str.substring(10, 12);
+        String timesTamp = yyyy + "-" + mm + "-" + dd + "T" + hh + ":" + mi + ":00.000Z";
+        return timesTamp;
     }
 }

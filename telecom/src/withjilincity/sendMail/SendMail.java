@@ -1,7 +1,7 @@
 package withjilincity.sendMail;
 
 import utils.stru.StruMail;
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 import utils.mail.SendMailUtil;
 
 import java.util.ArrayList;

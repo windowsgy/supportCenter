@@ -4,7 +4,7 @@ package withjilincity.splitFiles;
 
 import withjilincity.parm.InputParm;
 import withjilincity.parm.SetupParms;
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 
 import java.util.List;
 import java.util.Map;

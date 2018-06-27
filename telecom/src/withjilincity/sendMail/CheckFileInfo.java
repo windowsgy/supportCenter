@@ -2,10 +2,10 @@ package withjilincity.sendMail;
 
 
 import withjilincity.parm.BuildParm;
-import utils.internal.ListUtil;
-import utils.internal.LogInfo;
-import utils.internal.Regex;
-import utils.internal.SetUtils;
+import utils.base.ListUtils;
+import utils.base.LogInfo;
+import utils.base.Regex;
+import utils.base.SetUtils;
 
 
 /**
@@ -26,10 +26,10 @@ public class CheckFileInfo {
         }  else if(BuildParm.summaryList == null || BuildParm.summaryList.size()<1){
             LogInfo.info("汇总文件信息为空");
             return false;
-        }  else if (BuildParm.summaryJoinField.size()!= ListUtil.listToSet(BuildParm.summaryJoinField).size()){
+        }  else if (BuildParm.summaryJoinField.size()!= ListUtils.listToSet(BuildParm.summaryJoinField).size()){
             LogInfo.info("汇总文件关联字段不唯一");
             return false;
-        }     else if (BuildParm.summaryMailField.size()!= ListUtil.listFilter(BuildParm.summaryMailField, Regex.REGEX_EMAIL).size()){
+        }     else if (BuildParm.summaryMailField.size()!= ListUtils.listFilter(BuildParm.summaryMailField, Regex.REGEX_EMAIL).size()){
             LogInfo.info("E-Mail 地址格式存在错误 ");
             return false;
         } else if (BuildParm.summaryJoinField.size()!= BuildParm.summaryMailField.size()){
@@ -39,7 +39,7 @@ public class CheckFileInfo {
         else if (BuildParm.summaryJoinField.size()!= BuildParm.SPLITFILELIST.size()){
             LogInfo.info("汇总文件关联字段信息与拆分文件数量不一致");
             return false;
-        }   else if (!(SetUtils.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField),ListUtil.listToSet(BuildParm.SPLITFILELIST)))) {
+        }   else if (!(SetUtils.isSetEqual(ListUtils.listToSet(BuildParm.summaryJoinField), ListUtils.listToSet(BuildParm.SPLITFILELIST)))) {
             LogInfo.info("汇总文件关联字段与拆分文件名称不一致");
             return false;
         }

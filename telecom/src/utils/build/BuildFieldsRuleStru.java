@@ -1,8 +1,8 @@
-package utils.buildStru;
+package utils.build;
 
-import utils.internal.Chk4Str;
-import utils.internal.Regex;
-import utils.internal.*;
+import utils.chk.Chk4Str;
+import utils.base.Regex;
+import utils.base.*;
 import utils.stru.StruFieldsRules;
 
 import java.util.*;
@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class BuildFieldsRuleStru {
 
-
     /**
      * 工厂方法 构建规则结构体
      *
@@ -23,24 +22,24 @@ public class BuildFieldsRuleStru {
      */
     public static Map<String, List<StruFieldsRules>> run(Map<String, List<List<String>>> map) {
         Map<String, List<StruFieldsRules>> struMap = new HashMap<>();//返回的规则结构
-        LogInfo.info("Rules Count :" + map.size());
+        LogInfo.info("RulesSet Count :" + map.size());
         //循环规则
         for (String key : map.keySet()) {
             //定义规则数量
             int defineRuleSize = map.get(key).size();//定义规则统计，
-            LogInfo.info(key + " Rules ,Define Count :" + defineRuleSize);//打印定义规则数量
+          //  LogInfo.info(key + " Rules ,Define Count :" + defineRuleSize);//打印定义规则数量
             List<StruFieldsRules> list = buildStru(map.get(key));//构建规则结构体
             if (list == null) {
                 return null;
             }
             //构造规则数量
             int buildRulesSize = list.size();
-            LogInfo.info(key + " Rules ,Build Rules Count :" + buildRulesSize);//检测规则统计
+         //   LogInfo.info(key + " Rules ,Build Rules Count :" + buildRulesSize);//检测规则统计
             if (!(defineRuleSize == buildRulesSize)) {//定义规则等于构建规则数量
                 return null;//如果定义规则数量不等于构造的规则数量 返回空;
             } else struMap.put(key, list);
         }
-        LogInfo.info(" Build Rules Count: " + struMap.size());
+        LogInfo.info("Build RulesSet Count :" + struMap.size());
         if (map.size() != struMap.size()) {//如果定义规则集合数量不等于构造集合数量，返回空
             return null;
         }
@@ -108,7 +107,6 @@ public class BuildFieldsRuleStru {
                     default:
                         break;
                 }
-
                 String isNull = fieldsList.get(4); //是否允许为空规则
                 if ("TRUE".equals(isNull)) {
                     stru.setIsNull(true);
@@ -117,12 +115,10 @@ public class BuildFieldsRuleStru {
                 }
                 rulesList.add(stru);//添加结构体
             }
-
         } catch (Exception e) {
             LogInfo.error(e.getClass().getSimpleName() + "," + e.getMessage());
             return null;
         }
-
         return rulesList;//返回结构体
     }
 }

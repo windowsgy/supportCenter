@@ -3,9 +3,9 @@ package withjilincity.sendMail;
 
 import withjilincity.parm.BuildParm;
 import withjilincity.parm.InitParm;
-import utils.fileutils.FileUtil;
-import utils.internal.ListUtil;
-import utils.internal.LogInfo;
+import utils.base.FileUtil;
+import utils.base.ListUtils;
+import utils.base.LogInfo;
 
 import java.util.List;
 
@@ -28,19 +28,19 @@ public class Load {
         LogInfo.info("Load Summary File To List");
         BuildParm.summaryList = FileUtil.read2List(BuildParm.SUMMARY_FILEPATH,2,BuildParm.detailFileCode);//第二行开始读
         LogInfo.info("Load Summary File To ListArray");
-        BuildParm.summaryListArr = ListUtil.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
+        BuildParm.summaryListArr = ListUtils.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
         if(BuildParm.summaryListArr == null){
             LogInfo.info("Summary Field Inconformity");//每行字段数量不一致
             return false;
         }
         LogInfo.info("Load Summary Join Field ");
-        BuildParm.summaryJoinField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.summaryJoinIndex);
+        BuildParm.summaryJoinField = ListUtils.listArrField(BuildParm.summaryListArr, InitParm.summaryJoinIndex);
         LogInfo.info("Load Summary Mail Field");
-        BuildParm.summaryMailField = ListUtil.listArrField(BuildParm.summaryListArr, InitParm.detailMailIndex);
+        BuildParm.summaryMailField = ListUtils.listArrField(BuildParm.summaryListArr, InitParm.detailMailIndex);
         LogInfo.info("Load SplitFiles Name");
         List<String> splitFileList = FileUtil.getFileNameToList(BuildParm.SPLIT_SUBPATH);
-        List<String []> splitFileListArray = ListUtil.list2ListArray(splitFileList,InitParm.FileNameSplitStr);
-        BuildParm.SPLITFILELIST = ListUtil.listArrField(splitFileListArray,0);
+        List<String []> splitFileListArray = ListUtils.list2ListArray(splitFileList,InitParm.FileNameSplitStr);
+        BuildParm.SPLITFILELIST = ListUtils.listArrField(splitFileListArray,0);
         LogInfo.info("Loading Files Succeed");
         return true;
     }

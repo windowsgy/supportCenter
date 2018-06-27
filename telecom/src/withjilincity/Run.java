@@ -2,7 +2,7 @@ package withjilincity;
 
 import withjilincity.sendMail.RunSendMail;
 import withjilincity.splitFiles.RunSplitFile;
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 import java.util.Scanner;
 
 /**

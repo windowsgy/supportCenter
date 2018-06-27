@@ -2,7 +2,7 @@ package utils.telnet;
 
 
 
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 
 import java.util.ArrayList;
 import java.util.List;

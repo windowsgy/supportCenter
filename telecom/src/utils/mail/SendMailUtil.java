@@ -1,6 +1,6 @@
 package utils.mail;
 
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 import utils.stru.StruMail;
 
 import javax.activation.DataHandler;

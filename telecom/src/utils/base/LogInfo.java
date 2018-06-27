@@ -1,7 +1,6 @@
-package utils.internal;
+package utils.base;
 
 import utils.external.DateTimeUtil;
-import utils.fileutils.FileUtil;
 
 /**
  * 日志记录类

@@ -1,9 +1,7 @@
 package utils.config;
 
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
@@ -38,12 +36,8 @@ public class Config {
                     }
                 }
             }
-        } catch (FileNotFoundException e) {
-            LogInfo.error("找不到配置文件");
-            e.printStackTrace();
-        } catch (IOException i) {
-            LogInfo.error("文件读取异常");
-            i.printStackTrace();
+        }  catch (Exception e) {
+            LogInfo.error(e.getClass().getSimpleName()+""+e.getMessage());
         }
         return params;
 

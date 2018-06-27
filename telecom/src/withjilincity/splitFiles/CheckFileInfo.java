@@ -1,9 +1,9 @@
 package withjilincity.splitFiles;
 
 import withjilincity.parm.BuildParm;
-import utils.internal.ListUtil;
-import utils.internal.LogInfo;
-import utils.internal.SetUtils;
+import utils.base.ListUtils;
+import utils.base.LogInfo;
+import utils.base.SetUtils;
 
 
 /**
@@ -32,22 +32,22 @@ public class CheckFileInfo {
         } else if (BuildParm.detailList == null || BuildParm.detailList.size() < 1) {
             LogInfo.info("明细文件信息为空");
             return false;
-        } else if (BuildParm.summaryJoinField.size() != ListUtil.listToSet(BuildParm.summaryJoinField).size()) {
+        } else if (BuildParm.summaryJoinField.size() != ListUtils.listToSet(BuildParm.summaryJoinField).size()) {
             LogInfo.info("汇总文件关联字段不唯一");
             return false;
-        } else if (BuildParm.summaryJoinField.size() != ListUtil.listToSet(BuildParm.detailJoinField).size()) {
+        } else if (BuildParm.summaryJoinField.size() != ListUtils.listToSet(BuildParm.detailJoinField).size()) {
             LogInfo.info("汇总文件与明细文件关联字段数量不一致");
             return false;
-        } else if (!(SetUtils.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField), ListUtil.listToSet(BuildParm.detailJoinField)))) {
+        } else if (!(SetUtils.isSetEqual(ListUtils.listToSet(BuildParm.summaryJoinField), ListUtils.listToSet(BuildParm.detailJoinField)))) {
             LogInfo.info("汇总文件与明细文件关联字段不一致");
             return false;
-        } else if (!(BuildParm.detailDetailField.size() != ListUtil.listToSet(BuildParm.detailDetailField).size())) {
+        } else if (!(BuildParm.detailDetailField.size() != ListUtils.listToSet(BuildParm.detailDetailField).size())) {
             LogInfo.info("明细文件名字字段不唯一");
             return false;
-        } else if (ListUtil.listToSet(BuildParm.detailDateField).size() > 1) {
+        } else if (ListUtils.listToSet(BuildParm.detailDateField).size() > 1) {
             LogInfo.info("明细文件日期字段不唯一");
             return false;
-        } else if (!(ListUtil.listToSet(BuildParm.detailDateField).contains(BuildParm.inputDate))) {
+        } else if (!(ListUtils.listToSet(BuildParm.detailDateField).contains(BuildParm.inputDate))) {
             LogInfo.info("明细文件日期字段与输入日期不一致");
             return false;
         } else if (BuildParm.summaryJoinField.size() != BuildParm.summaryMailField.size()) {

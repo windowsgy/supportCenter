@@ -1,8 +1,8 @@
 package withjilincity.splitFiles;
 
 import withjilincity.parm.BuildParm;
-import utils.fileutils.FileUtil;
-import utils.internal.LogInfo;
+import utils.base.FileUtil;
+import utils.base.LogInfo;
 
 import java.util.Scanner;
 

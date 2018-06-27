@@ -1,6 +1,6 @@
 package withjilincity.parm;
 
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 
 /**
  *

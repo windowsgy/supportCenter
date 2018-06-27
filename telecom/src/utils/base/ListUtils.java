@@ -1,4 +1,4 @@
-package utils.internal;
+package utils.base;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * Created by jlgaoyuan on 2018/5/5.
  * List 工具
  */
-public class ListUtil {
+public class ListUtils {
 
     /**
      * List To List Array

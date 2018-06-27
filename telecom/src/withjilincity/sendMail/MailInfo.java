@@ -5,7 +5,7 @@ package withjilincity.sendMail;
 import withjilincity.parm.BuildParm;
 import withjilincity.parm.InitParm;
 import utils.stru.StruMail;
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 
 import java.util.HashMap;
 import java.util.List;

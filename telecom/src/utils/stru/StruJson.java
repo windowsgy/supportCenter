@@ -23,7 +23,6 @@ public class StruJson {
         dataType =  _value;
     }
 
-
     public String getKey() {
         return key;
     }

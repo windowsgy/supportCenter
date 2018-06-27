@@ -1,8 +1,8 @@
 package utils.telnet;
 
-import utils.fileutils.FileUtil;
-import utils.internal.ListUtil;
-import utils.internal.LogInfo;
+import utils.base.FileUtil;
+import utils.base.ListUtils;
+import utils.base.LogInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class TelnetMain {
 
         String code = FileUtil.codeString(inputPath);
 
-        List<String[]> list  = ListUtil.list2ListArray(FileUtil.read2List(inputPath,0,code),splintParm);
+        List<String[]> list  = ListUtils.list2ListArray(FileUtil.read2List(inputPath,0,code),splintParm);
 
         List<StruTelnetMap> telnetList = new ArrayList<>();
 

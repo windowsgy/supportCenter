@@ -1,9 +1,8 @@
 package utils.chk;
 
-import utils.internal.Chk4Str;
-import utils.internal.DTUtils;
-import utils.internal.LogInfo;
-import utils.internal.Regex;
+import utils.base.DTUtils;
+import utils.base.LogInfo;
+import utils.base.Regex;
 
 
 import java.util.List;
@@ -22,41 +21,31 @@ public class ChkRules {
      * @return boolean
      */
     public static boolean run(Map<String, List<List<String>>> map) {
-        LogInfo.info("Rules Count :" + map.size());
-
-        //循环规则
-        for (String key : map.keySet()) {
-            boolean ruleChk; //规则判断
+        StringBuilder errorSB = new StringBuilder();//错误规则集合
+        LogInfo.info("RulesSet Count :" + map.size());
+        for (String key : map.keySet()) {//循环规则
             List<List<String>> ruleList = map.get(key);
-            int defineRuleSize = ruleList.size() ;//定义规则统计,行数-1，去表头统计规则行数
-            LogInfo.info(key + " Rules ,Define Count :" + defineRuleSize);//打印定义规则数量
+            int defineRuleSize = ruleList.size();//定义规则统计,行数-1，去表头统计规则行数
+            LogInfo.info(key + " Rule,Define Count :" + defineRuleSize);//打印定义规则数量
             //循环规则列表进行检测
             for (int i = 0; i < ruleList.size(); i++) {
-                List<String> list = ruleList.get(i);
-                // System.out.println(list.toString());
-                boolean isNumber = Chk4Str.isFormat(list.get(0), Regex.REGEX_INT);//首字段是否为整数，首字段为规则编号；
-                if (!isNumber) {//如果不是定义规则的行
-                    return false;
+                List<String> list = ruleList.get(i);//每行
+                if (!Chk4Str.isFormat(list.get(0), Regex.REGEX_INT)) {//如果不是定义规则的行
+                    errorSB.append(key).append(" Line ").append(i+1).append(" IndexError \r\n");
                 }
-                ruleChk = list.size() > 4; //规则字段长度大于 4
-                if (!ruleChk) { //如果规则不大于4个，规则数量不足，返回失败
-                    LogInfo.error(key + " Rules ,RulesCountError: " + i + "Line");
-                    return false;
+                if (list.size() < 5) { //如果规则不大于4个，规则数量不足，返回失败
+                    errorSB.append(key).append(" Line ").append(i+1).append(" RulesCount Error: \r\n");
                 }
-                ruleChk = !Chk4Str.isEmpty(list.get(1)); //第二个字段为名称字段，名称字段不为null 或 不为 ""
-                if (!ruleChk) {//如果字段为空，规则存在无效字段，返回失败
-                    LogInfo.error(key + " Rules ,RulesError: " + i + "Line,名称字段为空");
-                    return false;
+                if (Chk4Str.isEmpty(list.get(1))) {//如果字段为空，规则存在无效字段，返回失败
+                    errorSB.append(key).append(" Line ").append(i+1).append(" FieldName IsNull: \r\n");
                 }
-                String dataType = list.get(2);
-                ruleChk = Chk4Str.isDataType(dataType);//第三个字段为数据类型。
-                if (!ruleChk) {//如果不是定义的数据类型,规则存在无效字段
-                    LogInfo.error(key + " Rules ,RulesError: " + i + "Line,数据类型无效:" + dataType);
-                    return false;
+                if (!Chk4Str.isDataType(list.get(2))) {//如果不是定义的数据类型,规则存在无效字段
+                    errorSB.append(key).append(" Line ").append(i+1).append(" DataType Error: \r\n");
                 }
-                String rule = list.get(3);//规则字段
                 //判断数据类型，对规则参数检测
-                switch (dataType) {
+                boolean ruleChk; //规则判断
+                String rule = list.get(3);//规则字段
+                switch (list.get(2)) {
                     case "Char":
                         ruleChk = Chk4Str.isFormat(rule, Regex.REGEX_INT);
                         break;
@@ -101,7 +90,7 @@ public class ChkRules {
                         break;
 
                     case "SET":
-                        ruleChk = Chk4Str.includeCharCount(rule)>0;//分隔符号大于0
+                        ruleChk = Chk4Str.includeCharCount(rule) > 0;//分隔符号大于0
                         break;
                     case "IPV4":
                         ruleChk = true;
@@ -120,17 +109,17 @@ public class ChkRules {
                 }
                 //如果检测失败，返回。
                 if (!ruleChk) {
-                    LogInfo.error(key + " Rules ,RulesError: " + i + " Line,数据规则无效 :" + rule);
-                    return false;
+                    errorSB.append(key).append(" Line ").append(i+1).append(" DataRule Error: \r\n");
                 }
                 String isNull = list.get(4); //是否允许为空
                 if (!(("true".equals(isNull)) || ("false".equals(isNull)))) {
-                    LogInfo.error(key + " Rule ,RulesError: " + i + " Line,是否为空规则无效" + isNull);
-                    return false;
+                    errorSB.append(key).append(" Line ").append(i+1).append(" isNull Error: \r\n");
                 }
-
             }
         }
-        return true;
+        if (errorSB.length() > 0) {
+            System.out.print(errorSB.toString().trim());
+            return false;
+        } else return true;
     }
 }

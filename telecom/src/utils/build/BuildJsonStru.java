@@ -1,6 +1,6 @@
-package utils.buildStru;
+package utils.build;
 
-import utils.fileutils.FileUtil;
+import utils.base.FileUtil;
 import utils.stru.StruJson;
 
 import java.util.ArrayList;

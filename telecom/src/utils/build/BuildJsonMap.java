@@ -1,6 +1,6 @@
-package utils.internal;
+package utils.build;
 
-import utils.fileutils.FileUtil;
+import utils.base.FileUtil;
 import utils.stru.StruJson;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
  * Created by jlgaoyuan on 2018/4/2.
  *
  */
-public class JsonMap {
+public class BuildJsonMap {
 
     public static List<StruJson> run(String filePath) {
         List<StruJson> jsonList = new ArrayList<>();

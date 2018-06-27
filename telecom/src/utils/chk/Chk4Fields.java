@@ -1,9 +1,8 @@
 package utils.chk;
 
-import utils.internal.Chk4Str;
-import utils.internal.DTUtils;
-import utils.internal.LogInfo;
-import utils.internal.Regex;
+import utils.base.DTUtils;
+import utils.base.LogInfo;
+import utils.base.Regex;
 import utils.stru.StruFieldsRules;
 
 import java.util.List;
@@ -39,9 +38,9 @@ public class Chk4Fields {
                     checked = forLong(field, rule);
                 } else if ("Double".equals(field)) {
                     checked = forDouble(field, rule);
-                } else if ("Mac".equals(field) || "IPV4".equals(field) || "IPV6".equals(field)) {
+                } else if ("MAC".equals(field) || "IPV4".equals(field) || "IPV6".equals(field)) {
                     checked = forFormat(field, rule);
-                } else if ("Set".equals(field)) {
+                } else if ("SET".equals(field)) {
                     checked = forSet(field, rule);
                 } else if ("Boolean".equals(field)) {
                     checked = forBoolean(field, rule);

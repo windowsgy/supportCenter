@@ -1,7 +1,7 @@
-package utils.fileutils;
+package utils.base;
 
 
-import utils.internal.LogInfo;
+import utils.base.LogInfo;
 
 import java.io.*;
 import java.util.ArrayList;
