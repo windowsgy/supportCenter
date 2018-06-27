@@ -9,104 +9,67 @@ import utils.fileutils.FileUtil;
  */
 public class LogInfo {
 
-
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
-
     public static String debug(String x) {
-
-        String message = "[debug][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
-
+        String message = "[debug][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x + "\r\n";
         System.out.print(message);
         return message;
     }
 
     public static String info(String x) {
-
-        String message = "[info ][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
-
+        String message = "[info][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x + "\r\n";
         System.out.print(message);
         return message;
     }
 
     public static String warn(String x) {
-
-        String message = "[warn ][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
-
+        String message = "[warn][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x + "\r\n";
         System.out.print(message);
         return message;
 
     }
 
     public static String error(String x) {
-
-
-        String message = "[error][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x+"\r\n";
-
+        String message = "[error][" + DateTimeUtil.getCurTime(DATE_FORMAT) + "]" + x + "\r\n";
         System.out.print(message);
         return message;
-
     }
 
     public static String linel0() {
-
-        String message = "######################################################################################################################"+"\r\n";
-
+        String message = "######################################################################################################################" + "\r\n";
         System.out.print(message);
-
         return message;
-
     }
 
     public static String linel1() {
-
-        String message = "=============================================================================================="+"\r\n";
-
+        String message = "==============================================================================================" + "\r\n";
         System.out.print(message);
         return message;
-
     }
 
     public static String linel2() {
-
-        String message = "------------------------------------------------------------------"+"\r\n";
-
+        String message = "-----------------------------------------------------------------" + "\r\n";
         System.out.print(message);
         return message;
-
     }
 
 
     public static String linel3() {
-
-        String message = "*******************************"+"\r\n";
-
+        String message = "*******************************" + "\r\n";
         System.out.print(message);
-
         return message;
-
-
     }
 
     public static String linel4() {
-
-        String message = "..........."+"\r\n";
-
+        String message = "..........." + "\r\n";
         System.out.print(message);
-        
         return message;
-        
-
     }
-    
-    public static void logWrToFile(String logFilePath,String message ){
 
-        if(logFilePath != null){
-
+    public static void logWrToFile(String logFilePath, String message) {
+        if (logFilePath != null) {
             FileUtil.wrStrAddToFile(message, logFilePath);
-
         }
-
     }
-
 }

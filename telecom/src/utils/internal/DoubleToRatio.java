@@ -9,11 +9,9 @@ import java.text.NumberFormat;
 public class DoubleToRatio {
 
     public static String  run (Double str){
-
         NumberFormat nt = NumberFormat.getPercentInstance();
         //设置百分数精确度2即保留两位小数
         nt.setMinimumFractionDigits(2);
-
         return  nt.format(str);
 
     }

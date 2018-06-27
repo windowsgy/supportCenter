@@ -9,15 +9,15 @@ import java.util.Objects;
  */
 public class Chk4Str {
 
-     /**
+    /**
      * 判断是否为数字
      *
      * @param str string
      * @return boolean
      */
     static boolean isNumeric(String str) {
-        boolean isInt = isFormat(str,Regex.REGEX_INT);
-        boolean isDouble = isFormat(str,Regex.REGEX_DOUBLE);
+        boolean isInt = isFormat(str, Regex.REGEX_INT);
+        boolean isDouble = isFormat(str, Regex.REGEX_DOUBLE);
         return isInt || isDouble;
     }
 
@@ -33,43 +33,76 @@ public class Chk4Str {
 
     /**
      * 正则表达式规则匹配
-     * @param str 字符串
+     *
+     * @param str    字符串
      * @param format 格式
      * @return boolean
      */
-    public static boolean isFormat(String str, String format){
+    public static boolean isFormat(String str, String format) {
         return str.matches(format);
     }
 
 
     /**
-     *判断是否为指定的数据类型
-     * @param str  数据类型
+     * 判断是否为指定的数据类型
+     *
+     * @param str 数据类型
      * @return boolean
      */
     public static boolean isDataType(String str) {
-        if (Objects.equals("Char", str)) {
-            return true;
-        } else if (Objects.equals("String", str)) {
-            return true;
-        } else if (Objects.equals("Int", str)) {
-            return true;
-        } else if (Objects.equals("Double", str)) {
-            return true;
-        } else if (Objects.equals("IPV4", str)){
-            return true;
-        }else if (Objects.equals( "IPV6" , str)){
-            return true;
-        }else if (Objects.equals( "DateTime" , str)){
-            return true;
-        }else if (Objects.equals( "Mac" , str)){
-            return true;
-        }else if (Objects.equals( "Mail" , str)){
-            return true;
-        }else if (Objects.equals( "Url" , str)){
-            return true;
-        }
-        else return false;
+        return Objects.equals("Char", str)
+                || Objects.equals("String", str)
+                || Objects.equals("Int", str)
+                || Objects.equals("Long", str)
+                || Objects.equals("Double", str)
+                || Objects.equals("IPV4", str)
+                || Objects.equals("IPV6", str)
+                || Objects.equals("DateTime", str)
+                || Objects.equals("Mac", str)
+                || Objects.equals("Mail", str)
+                || Objects.equals("Url", str);
     }
 
+
+    /**
+     * 判断数值是否在范围内
+     *
+     * @param start  起始数值
+     * @param end    结束数值
+     * @param number 数值
+     * @return boolean
+     */
+    public static boolean numberScope(long start, long end, long number) {
+        return number > start && number < end;
+    }
+
+
+    /**
+     * 判断数值是否在范围内
+     *
+     * @param start  起始数值
+     * @param end    结束数值
+     * @param number 数值
+     * @return boolean
+     */
+    public static boolean numberScope(double start, double end, double number) {
+        return number >= start && number <= end;
+    }
+
+    /**
+     * 统计指定字符在字符串中的数量
+     *
+     * @param str String
+     * @return 字符在字符串中的数量
+     */
+    public static int includeCharCount(String str) {
+        char ch[] = str.toCharArray();
+        int count = 0;
+        for (char aCh : ch) {
+            if (';' == aCh) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

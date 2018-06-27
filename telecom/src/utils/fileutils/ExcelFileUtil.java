@@ -1,17 +1,12 @@
 package utils.fileutils;
 
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by jlgaoyuan on 2018/6/16.
@@ -21,7 +16,7 @@ public class ExcelFileUtil {
 
     /**
      * EXCEL 文件转换为map  EXCEL文件中每个表格对应一个Key,  Value List 每行 ，List 每列
-     *
+     *  去掉了表头数据
      * @param filePath excel文件路径
      * @return map
      */
@@ -36,7 +31,6 @@ public class ExcelFileUtil {
             int sheetNum = wb.getNumberOfSheets();//获取EXCEL表数量
             Sheet sheet;
             for (int sheetIndex = 0; sheetIndex < sheetNum; sheetIndex++) {//遍历sheet(index 0开始)
-                StringBuilder sb = new StringBuilder();// 每个表格
                 sheet = wb.getSheetAt(sheetIndex);
                 Row row;
                 List<List<String>> rowList = new ArrayList<>(); //行列表
@@ -77,15 +71,24 @@ public class ExcelFileUtil {
                                 cellValue = cellValue.trim();
                                 cellValue = cellValue.replace("\r", "");//替换换行
                                 cellValue = cellValue.replace("\n", "");//替换回车
-                                cellList.add(cellValue);//每列添加
-                            } //end everycell
+
+                            } else {
+                                cellValue = "";
+                            }
+                            cellList.add(cellValue);//每列添加
                         }//end cells
-                        rowList.add(cellList);//每行添加
+
+                        Set set = new HashSet<>(cellList);//list转为set 判断所有字段是否都为""
+                        if (!(set.size() == 1 && set.contains(""))) {//如果行内每一列数据不全部为"",才进行添加每行
+                            rowList.add(cellList);//每行添加
+                        }
+
                     }//end every row
                 }//end rows
+                rowList.remove(0);//去掉表头
                 map.put(wb.getSheetName(sheetIndex), rowList);
             }//end sheets
-        } catch (InvalidFormatException | IOException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }

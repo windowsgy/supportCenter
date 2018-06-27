@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by jlgaoyuan on 2018/5/7.
  *
  */
-public class SetContrastSet {
+public class SetUtils {
 
 
     /**

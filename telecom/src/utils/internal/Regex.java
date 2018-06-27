@@ -51,12 +51,12 @@ public class Regex {
     /**
      * 正则表达式：验证整数
      */
-    public static final String REGEX_INT = "^\\d+$$";
+    public static final String REGEX_INT = "^-?\\d+$";
 
     /**
      * 正则表达式：验证浮点数值
      */
-    public static final String REGEX_DOUBLE = "\\d+\\.\\d+$";
+    public static final String REGEX_DOUBLE = "^-?([1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*|0?\\.0+|0)$";
 
     /**
      * 正则表达式:验证IPV6地址

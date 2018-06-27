@@ -3,7 +3,7 @@ package withjilincity.splitFiles;
 import withjilincity.parm.BuildParm;
 import utils.internal.ListUtil;
 import utils.internal.LogInfo;
-import utils.internal.SetContrastSet;
+import utils.internal.SetUtils;
 
 
 /**
@@ -38,7 +38,7 @@ public class CheckFileInfo {
         } else if (BuildParm.summaryJoinField.size() != ListUtil.listToSet(BuildParm.detailJoinField).size()) {
             LogInfo.info("汇总文件与明细文件关联字段数量不一致");
             return false;
-        } else if (!(SetContrastSet.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField), ListUtil.listToSet(BuildParm.detailJoinField)))) {
+        } else if (!(SetUtils.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField), ListUtil.listToSet(BuildParm.detailJoinField)))) {
             LogInfo.info("汇总文件与明细文件关联字段不一致");
             return false;
         } else if (!(BuildParm.detailDetailField.size() != ListUtil.listToSet(BuildParm.detailDetailField).size())) {

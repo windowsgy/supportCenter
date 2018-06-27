@@ -5,7 +5,7 @@ import withjilincity.parm.BuildParm;
 import utils.internal.ListUtil;
 import utils.internal.LogInfo;
 import utils.internal.Regex;
-import utils.internal.SetContrastSet;
+import utils.internal.SetUtils;
 
 
 /**
@@ -39,7 +39,7 @@ public class CheckFileInfo {
         else if (BuildParm.summaryJoinField.size()!= BuildParm.SPLITFILELIST.size()){
             LogInfo.info("汇总文件关联字段信息与拆分文件数量不一致");
             return false;
-        }   else if (!(SetContrastSet.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField),ListUtil.listToSet(BuildParm.SPLITFILELIST)))) {
+        }   else if (!(SetUtils.isSetEqual(ListUtil.listToSet(BuildParm.summaryJoinField),ListUtil.listToSet(BuildParm.SPLITFILELIST)))) {
             LogInfo.info("汇总文件关联字段与拆分文件名称不一致");
             return false;
         }
