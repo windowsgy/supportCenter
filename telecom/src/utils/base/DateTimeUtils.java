@@ -14,7 +14,7 @@ import java.util.List;
  * 时间处理类 获取前一时间段字符格式 ，判断输入时间是否合规，
  * Created by jlgaoyuan on 2017/6/19.
  */
-public class DTUtils {
+public class DateTimeUtils {
 
     /**
      * 获取当前 日期时间字段
@@ -203,7 +203,7 @@ public class DTUtils {
         Long timeDiffMi = timeDifference(startTimeStr, endTimeStr) / 60;//时间差 转换为秒
         int timeDiff = new Long(timeDiffMi).intValue();//Long To Int
         for (int i = 0; i < timeDiff; i++) {
-            String timeStr = DTUtils.computeTimeMi(endTimeStr, i);
+            String timeStr = DateTimeUtils.computeTimeMi(endTimeStr, i);
             timeList.add(timeStr);
         }
         return timeList;

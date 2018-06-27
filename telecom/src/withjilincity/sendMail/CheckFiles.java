@@ -2,7 +2,7 @@ package withjilincity.sendMail;
 
 
 import withjilincity.parm.BuildParm;
-import utils.base.FileUtil;
+import utils.base.FileUtils;
 import utils.base.LogInfo;
 
 
@@ -21,11 +21,11 @@ public class CheckFiles {
     public static boolean run(){
         //检查拆分文件是否存在
         LogInfo.info("File Check");
-        if(!FileUtil.isDir(BuildParm.SPLIT_SUBPATH)){//检查拆分文件
+        if(!FileUtils.isDir(BuildParm.SPLIT_SUBPATH)){//检查拆分文件
             LogInfo.error("Split Dir Not Exist"+BuildParm.SPLIT_SUBPATH);
             return false;
         }
-        if(!FileUtil.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
+        if(!FileUtils.isFile(BuildParm.SUMMARY_FILEPATH)){//检查摘要文件
             LogInfo.error("Summary Files Not Exist"+BuildParm.SUMMARY_FILEPATH);
             return false;
         }

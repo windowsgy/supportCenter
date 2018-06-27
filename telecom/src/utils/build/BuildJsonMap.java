@@ -1,6 +1,6 @@
 package utils.build;
 
-import utils.base.FileUtil;
+import utils.base.FileUtils;
 import utils.stru.StruJson;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class BuildJsonMap {
 
     public static List<StruJson> run(String filePath) {
         List<StruJson> jsonList = new ArrayList<>();
-        List<String> list = FileUtil.read2List(filePath, 1, "UTF-8");
+        List<String> list = FileUtils.read2List(filePath, 1, "UTF-8");
         for (String aList : list) {
             String line[] = aList.split(",");
             String key = line[0];

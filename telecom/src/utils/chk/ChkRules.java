@@ -1,6 +1,6 @@
 package utils.chk;
 
-import utils.base.DTUtils;
+import utils.base.DateTimeUtils;
 import utils.base.LogInfo;
 import utils.base.Regex;
 
@@ -102,7 +102,7 @@ public class ChkRules {
                         ruleChk = true;
                         break;
                     case "DateTime":
-                        ruleChk = DTUtils.dateTimeFormat(rule);
+                        ruleChk = DateTimeUtils.dateTimeFormat(rule);
                         break;
                     default:
                         ruleChk = false;

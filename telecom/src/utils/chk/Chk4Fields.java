@@ -1,6 +1,6 @@
 package utils.chk;
 
-import utils.base.DTUtils;
+import utils.base.DateTimeUtils;
 import utils.base.LogInfo;
 import utils.base.Regex;
 import utils.stru.StruFieldsRules;
@@ -64,7 +64,7 @@ public class Chk4Fields {
     private boolean forDateTime(String str, StruFieldsRules rule) {
         return Chk4Str.isEmpty(str)
                 && rule.isNull()
-                && DTUtils.dtFormatCheak(str, rule.getFormat());
+                && DateTimeUtils.dtFormatCheak(str, rule.getFormat());
     }
 
     private boolean forInt(String str, StruFieldsRules rule) {//判断为Int在界定范围

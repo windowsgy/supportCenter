@@ -1,6 +1,6 @@
 package utils.telnet;
 
-import utils.base.FileUtil;
+import utils.base.FileUtils;
 import utils.base.ListUtils;
 
 import java.util.HashMap;
@@ -18,9 +18,9 @@ public class CommandMap {
 
         Map<String,String> commandMap = new HashMap<>();
 
-        String code = FileUtil.codeString(path);
+        String code = FileUtils.codeString(path);
 
-        List<String[]> listCmd  = ListUtils.list2ListArray(FileUtil.read2List(path,0,code),splintParm);
+        List<String[]> listCmd  = ListUtils.list2ListArray(FileUtils.read2List(path,0,code),splintParm);
 
         for (String[] arr : listCmd) {
 

@@ -2,7 +2,7 @@ package withjilincity.parm;
 
 
 
-import utils.base.DTUtils;
+import utils.base.DateTimeUtils;
 import utils.base.LogInfo;
 
 import java.util.Scanner;
@@ -27,7 +27,7 @@ public class InputParm {
 
             return false;
 
-        } else if (!DTUtils.dtFormatCheak(inputDate, InitParm.DATE_FORMAT)) {
+        } else if (!DateTimeUtils.dtFormatCheak(inputDate, InitParm.DATE_FORMAT)) {
 
             LogInfo.error("Date Format Error");
 

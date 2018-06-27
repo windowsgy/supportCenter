@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FileUtil {
+public class FileUtils {
 
     /**
      * 判断路径是否为一个文件

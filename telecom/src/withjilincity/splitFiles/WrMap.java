@@ -1,7 +1,7 @@
 package withjilincity.splitFiles;
 
 import withjilincity.parm.BuildParm;
-import utils.base.FileUtil;
+import utils.base.FileUtils;
 import utils.base.LogInfo;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class WrMap {
 
     public static void run(Map<String, List<String>> map) {
         LogInfo.info("create split dir");
-        FileUtil.createDir(BuildParm.SPLIT_SUBPATH);
+        FileUtils.createDir(BuildParm.SPLIT_SUBPATH);
         StringBuilder sb = new StringBuilder();
         sb.append(BuildParm.detailFileHead).append("\r");
         for (String key : map.keySet()) {
@@ -25,7 +25,7 @@ public class WrMap {
             for (String aList : list) {
                 sb.append(aList).append("\r");
             }
-            FileUtil.wrStrToFile(sb.toString(), filePath, BuildParm.detailFileCode);
+            FileUtils.wrStrToFile(sb.toString(), filePath, BuildParm.detailFileCode);
             sb.setLength(0);
             sb.append(BuildParm.detailFileHead).append("\r");
         }

@@ -12,7 +12,7 @@ import java.util.*;
  * Created by jlgaoyuan on 2018/6/16.
  * EXCEL提取工具
  */
-public class ExcelFileUtil {
+public class ExcelFileUtils {
 
     /**
      * EXCEL 文件转换为map  EXCEL文件中每个表格对应一个Key,  Value List 每行 ，List 每列

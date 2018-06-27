@@ -2,7 +2,7 @@ package withjilincity.splitFiles;
 
 import withjilincity.parm.BuildParm;
 import withjilincity.parm.InitParm;
-import utils.base.FileUtil;
+import utils.base.FileUtils;
 import utils.base.ListUtils;
 import utils.base.LogInfo;
 
@@ -17,18 +17,18 @@ public class Load {
      */
     public static boolean run() {
         LogInfo.info("Loading Files");
-        BuildParm.summaryFileCode = FileUtil.codeString(BuildParm.SUMMARY_FILEPATH);
+        BuildParm.summaryFileCode = FileUtils.codeString(BuildParm.SUMMARY_FILEPATH);
         LogInfo.info("Summary File Code :" + BuildParm.summaryFileCode);
-        BuildParm.detailFileCode = FileUtil.codeString(BuildParm.DETAIL_FILEPATH);
+        BuildParm.detailFileCode = FileUtils.codeString(BuildParm.DETAIL_FILEPATH);
         LogInfo.info("Detail File Code :" + BuildParm.detailFileCode);
         LogInfo.info("Load Summary File Head");
-        BuildParm.summaryFileHead = FileUtil.readFirstLine(BuildParm.SUMMARY_FILEPATH, BuildParm.summaryFileCode);
+        BuildParm.summaryFileHead = FileUtils.readFirstLine(BuildParm.SUMMARY_FILEPATH, BuildParm.summaryFileCode);
         LogInfo.info("Load Detail File Head");
-        BuildParm.detailFileHead = FileUtil.readFirstLine(BuildParm.DETAIL_FILEPATH, BuildParm.detailFileCode);
+        BuildParm.detailFileHead = FileUtils.readFirstLine(BuildParm.DETAIL_FILEPATH, BuildParm.detailFileCode);
         LogInfo.info("Load Summary File To List");
-        BuildParm.summaryList = FileUtil.read2List(BuildParm.SUMMARY_FILEPATH, 2, BuildParm.summaryFileCode);//第二行开始读
+        BuildParm.summaryList = FileUtils.read2List(BuildParm.SUMMARY_FILEPATH, 2, BuildParm.summaryFileCode);//第二行开始读
         LogInfo.info("Load Detail File To List");
-        BuildParm.detailList = FileUtil.read2List(BuildParm.DETAIL_FILEPATH, 2, BuildParm.detailFileCode);//第二行开始读
+        BuildParm.detailList = FileUtils.read2List(BuildParm.DETAIL_FILEPATH, 2, BuildParm.detailFileCode);//第二行开始读
         LogInfo.info("Load Summary File ListArray");
         BuildParm.summaryListArr = ListUtils.list2ListArray(BuildParm.summaryList, InitParm.SplitStr);
         if (BuildParm.summaryListArr == null) {
