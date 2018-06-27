@@ -102,8 +102,7 @@ public class ListUtils {
      */
     public static List<String> listFilter(List<String> list, String regex) {
         List<String> filterList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            String line = list.get(i);
+        for (String line : list) {
             if (Pattern.matches(regex, line)) {
                 filterList.add(line);
             }

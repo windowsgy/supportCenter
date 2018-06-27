@@ -1,8 +1,6 @@
 package utils.base;
 
 
-import utils.base.LogInfo;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;

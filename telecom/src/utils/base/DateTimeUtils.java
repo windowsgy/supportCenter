@@ -118,7 +118,7 @@ public class DateTimeUtils {
      * @param endTime   结束时间
      * @return 时间差 单位秒
      */
-    public static Long timeDifference(String startTime, String endTime) {
+    private static Long timeDifference(String startTime, String endTime) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date d1 = df.parse(endTime);
