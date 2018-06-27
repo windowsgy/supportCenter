@@ -13,6 +13,11 @@ import java.util.*;
  */
 public class Config {
 
+    /**
+     * 构建参数集合
+     * @param fileName 参数文件名
+     * @return 参数集合
+     */
     public  Map<String, Map<String, String>> buildConfig(String fileName) {//配置文件名称
         List<String> configKeys = Arrays.asList("localpath", "localfilename");//参数类型列表
         Map<String, Map<String, String>> params = new HashMap<>();//返回参数信息
