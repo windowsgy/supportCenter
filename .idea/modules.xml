@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/supportCenter.iml" filepath="$PROJECT_DIR$/.idea/supportCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/telecom/telecom.iml" filepath="$PROJECT_DIR$/telecom/telecom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/openstack/openstack.iml" filepath="$PROJECT_DIR$/openstack/openstack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testModel/testModel.iml" filepath="$PROJECT_DIR$/testModel/testModel.iml" />
     </modules>
   </component>
 </project>
